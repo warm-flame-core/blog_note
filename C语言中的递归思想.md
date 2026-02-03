@@ -1,0 +1,143 @@
+﻿@[TOC](递归)
+# 引言
+我们解决问题时常常需要重复去执行一件事情，或者上一件的事情的结果需要作为下一件事情的开始。获取你会想到用之前学到的循环，但是在编程语言中，除了循环之外，其实还有一种解决事情的方法时递归。
+在C语言中，递归是**函数自己调用自己**。先看一个简单的函数自己调用自己
+
+```c
+#include<stdio.h>
+int main()
+{
+	printf("Hello World\n");
+	main();
+	return 0;
+}
+```
+运行代码，屏幕上会不断的输出`Hello World`，但是最终会造成栈溢出
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/964830d928a3434ab4b90312fda9ab28.png)
+~~另外栈溢出的英文（Stackoverflow）作为域名时是一个国外的程序员问答网站~~ 
+# 递归的思想
+一件大事情可以被不断的拆分，而且拆分成一个个与原问题相似的小问题，用小问题求解，逐渐回归到大问题，这就是递归，一种把**大事化小**的思考方式
+递归就是**递推和回归**的意思
+所以，在使用递归时要有两个条件：
+
+- 存在限制条件，当满足限制条件时递归不再进行
+- 每次调用递归会越来越接近这个限制条件
+# 举例：n的阶乘（不考虑溢出）
+根据阶乘公式：
+$$n! = \begin{cases} 1, & n=0 \\ n \times (n-1)!, & n \in N^+ \end{cases}$$
+我们很容易想到，如果要求`N`的阶乘，那么就要求`N-1`的阶乘,以此类推，最后的小问题会推到求`0`的阶乘是1。
+
+- 限制条件是`0`的阶乘
+- 每次递推会越来越接近`0`的阶乘
+
+所以我们久可以用递推的方式求N的阶乘。
+
+```c
+#include<stdio.h>
+ int Fact(int n)
+{
+	if (n == 0)
+		return 1;
+	else
+		return n * Fact(n - 1);
+}
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	int sum = Fact(n);
+	printf("%d", sum);
+	return 0;
+}
+```
+# 递归不是万能解药
+有一些同学学习了递推之后，发现用编程解决问题会变得如此简单，于是什么问题求解都使用递归，下面我们就举一个例子来说明不是什么时候用递归都好
+观察斐波那契数列的公式：
+$$F(n)= \begin{cases} 0, & n=0 \\ 1, & n=1 \\ F(n-1)+F(n-2), & n\geq2,\ n\in N \end{cases}$$
+根据公式我们很容易就写出递归的代码：
+
+```c
+#include<stdio.h>
+int Fact(int n)
+{
+	if (n < 3)
+		return 1;
+	else
+		return Fact(n - 1) + Fact(n - 2);
+}
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	int ret = Fact(n);
+	printf("%d\n", ret);
+	return 0;
+}
+```
+这段代码看似没有什么问题，但是如果我们求第50个斐波那契数时程序运行结果要等很久很久，明明就是只要求第50个，为什么会那么慢的？
+我们可以做一些测试，统计一下第3个斐波那契数被计算的次数，就在函数里加一个if，如果n等于3，那么次数就加一：
+
+```c
+#include<stdio.h>
+int count = 0;
+int Fact(int n)
+{
+	if (n == 3)    //算到第三个斐波那契数就统计一次
+		count++;
+	if (n < 3)
+		return 1;
+	else
+		return Fact(n - 1) + Fact(n - 2);
+}
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	int ret = Fact(n);
+	printf("%d\n", ret);
+	printf("count = %d\n", count);
+	return 0;
+}
+```
+我们输入30
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/3a76b4003e1d4f9ba480d983282669b7.png)
+会发现第三个斐波那契数被重复计算了317811次，根据递推的思想我们可以画图：
+$$
+\begin{align*}
+\text{Fact}(30) &= 30 \times \underbrace{\text{Fact}(29)}_{\text{重复计算1}} \\
+\text{Fact}(29) &= 29 \times \underbrace{\text{Fact}(28)}_{\text{重复计算2}} \\
+\text{Fact}(30) \text{/} \text{Fact}(29) &= \dots \times \underbrace{\text{Fact}(3)}_{\text{同一子问题，多次调用}} \\
+& \vdots \\
+\text{所有上层节点均需重复计算 } \text{Fact}(3)、\text{Fact}(2) \dots
+\end{align*}
+$$
+可以发现，递归每回归一层，Fact(3)就要多算好多遍，这大大降低了效率。观察公式，我们发现其实只需要把前两个加上就可以了，这样的话用循环也可以解决：
+
+```c
+#include<stdio.h>
+int Fit(int n)
+{
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (n > 3)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;
+}
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	int ret = Fit(n);
+	printf("%d\n", ret);
+	return 0;
+}
+```
+这样写就不存在什么重复计算的问题，效率就非常高
+# 总结
+递归虽好，可不要贪杯哦。但是实际运用中，递归实在是太容易想到了，作为当程序员的，只要能运行起来就是万事大吉，谁还管效率高不高的事情😒
