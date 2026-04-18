@@ -1,0 +1,266 @@
+﻿@[toc](栈和队列)
+# 引言
+本文对栈进行介绍，用C语言的目的是为了更好的理解栈的功能，因为C语言关于栈的接口都需要自己实现，虽说麻烦，但是还是嫩复习C语言，同时可以对栈有一个深入的了解
+# 栈的形式
+我们可以把栈比作一个弹匣，在弹匣的子弹中，先压入的子弹在跟后面才会被射出，后压入的子弹会被先射出，其满足要求——`后进先出`（LIFO, Last In First Out）
+其中数据进入栈我们叫`进栈/压栈/入栈`，**入数据在栈顶**
+出数据我们叫`出栈`，**出数据也在栈顶**
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/63e5c0ab80034988bdbb516e0e00014c.png#pic_center)
+
+# 栈的实现形式
+常见的我们对栈的操作有：入栈，出栈，取栈顶数据，判断栈的个数，判空操作。逻辑上是连续的，我们可以想到是数组或者链表，但是链表我们栈删除数据的时候要么要遍历，要么就要记录尾节点，这样的操作时繁琐的，所以栈的实现我们使用**动态内存管理**的数组
+另外，我们还需要记录数组的已经开辟的大小和数组实际的有效数据个数，那么我们可以用结构体定义
+
+```c
+typedef int STDateType;
+typedef struct Stack
+{
+	STDateType* a;
+	int top;	//表示栈顶元素的下一个
+	int capacity;
+}Stack,* pStack;
+```
+其中top上的值如果是表示栈顶元素的下一个的话，那么top初始化必须是0，如果要表示top是栈顶元素的下标，那么初始化就要为-1，但是`-1`的初始化不利于我们后面出栈的操作，这里我们top的值初始化为1
+## 函数实现
+### 1. 头文件 `Stack.h`
+
+头文件不仅仅是一个声明集合，它更是模块对外的**契约**。它清晰地告诉使用者：“我能为你做什么”。这种分离设计（声明与实现分离）是大型项目工程化的基石。
+
+```c
+#pragma once
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <assert.h>
+typedef int STDateType;
+typedef struct Stack
+{
+	STDateType* a;
+	int top;
+	int capacity;
+}Stack, *pStack;
+```
+将 int 重定义为 STDateType，意味着未来若想让栈存储 double 或 char，
+只需在此处修改一行代码，整个栈模块无需任何改动
+所有函数都接收一个指向 Stack 结构体的指针 (ps)，因为我们操作的是栈本身的状态。
+### 2. 源文件 `Stack.c`
+
+#### **初始化 `StackInit`：从零到一**
+```c
+void StackInit(pStack ps)
+{
+	assert(ps);
+	ps->a = NULL;
+	ps->top = 0;
+	ps->capacity = 0; 
+}
+```
+`StackInit` 并不分配内存，它只是将栈置于一个“干净”的、已知的初始状态。真正的内存分配推迟到第一次 `Push` 操作，这是一种**懒加载（Lazy Initialization）** 策略，避免了不必要的资源开销。
+
+#### **销毁 `StackDestroy`：善始善终**
+```c
+void StackDestroy(pStack ps)
+{
+	assert(ps);
+	free(ps->a);        
+	ps->a = NULL;      
+	ps->top = ps->capacity = 0; 
+}
+```
+内存管理**谁分配，谁释放**。`StackDestroy` 是 `StackInit` 和 `StackPush` 中内存分配操作的最终归宿，一定记得要对释放的指针置空，**避免空指针**
+
+#### **压栈 `StackPush`**
+```c
+void StackPush(pStack ps, STDateType x)
+{
+	assert(ps);
+	//检查容量是否已满
+	if (ps->top == ps->capacity)
+	{
+		int newcapacity = ps->capacity == 0 ? 4 : ps->capacity * 2;
+		STDateType* tmp = (STDateType*)realloc(ps->a, sizeof(STDateType) * newcapacity);
+		if (tmp == NULL)
+		{
+			perror("StackPush realloc error");
+			return;
+		}
+		ps->a = tmp;
+		ps->capacity = newcapacity;
+	}
+	ps->a[ps->top] = x;
+	ps->top++;
+}
+```
+通过 `realloc` 和**指数级扩容**，计算新容量。首次分配4个单位，之后每次翻倍，翻倍策略是一种经典的“摊还分析（Amortized Analysis）”应用。虽然单次扩容代价是 O(N)，但 N 次 Push 操作的总代价是 O(N)，平均每次 O(1)。
+其中newcapacity的值记得传回给capacity，更新容量大小，而且必须对新扩容的内存进行检查，因为realloc可能会扩容失败，失败返回空指针，**C语言里绝对是不能对空指针进行解引用**
+#### **出栈 `StackPop`**
+```c
+void StackPop(pStack ps)
+{
+	assert(ps);
+	assert(ps->top > 0); 
+	ps->top--; 
+}
+```
+仅仅是改变一个计数器
+
+#### **获取栈顶 `StackTop`**
+```c
+STDateType StackTop(pStack ps)
+{
+	assert(ps);
+	assert(ps->top > 0); // 【原理】同样需要检查栈非空。
+	return ps->a[ps->top - 1]; // 【原理】因为 top 指向“下一个”位置，
+	                           // 所以栈顶元素的实际索引是 top - 1。
+}
+```
+不能因为是简单的操作就直接操作而不使用函数，因为封装函数的人肯定是想到了各种情况，函数既然给你那就是考虑了多种情况的，就比如本篇里top的值是指向栈顶元素的下一个，如果是不知情的人直接使用了语句的话很有可能会出问题的
+
+#### **辅助函数：`StackEmpty` 与 `StackSize`**
+```c
+bool StackEmpty(pStack ps)
+{
+	assert(ps);
+	return ps->top == 0; 
+}
+
+int StackSize(pStack ps)
+{
+	assert(ps);
+	return ps->top; 
+}
+```
+得益于我们在结构体中维护了 `top` 这个元数据。如果没有它，每次查询大小都需要从头遍历，效率将大打折扣。提升了效率
+# 使用
+
+```c
+Stack s1;
+StackInit(&s1);
+StackPush(&s1, 1);
+StackPush(&s1, 2);
+StackPush(&s1, 3);
+StackPush(&s1, 4);
+while (!StackEmpty(&s1))
+{
+	printf("%d ", StackTop(&s1));
+	StackPop(&s1);
+}
+StackDestroy(&s1);
+```
+如果要打印栈的数据那就是用while循环，只要栈不为空就出栈
+# 算法题
+力扣有一道关于[栈](https://leetcode.cn/problems/valid-parentheses/description/)的算法题
+## 栈的经典应用：判断有效括号
+
+> **“栈不是数据结构，而是一种思维方式。”**  
+> —— 当我们面对“匹配”、“嵌套”、“回溯”这类问题时，栈往往是最优雅的解法。
+
+给定一个只包含 `'('`, `')'`, `'{'`, `'}'`, `'['`, `']'` 的字符串 `s`，判断该字符串是否为**有效的括号序列**。
+
+有效需满足：
+1. 左括号必须用相同类型的右括号闭合；
+2. 左括号必须以正确的顺序闭合；
+3. 每个右括号都有一个对应的相同类型的左括号。
+
+**示例**：
+- `"()"` → `true`
+- `"()[]{}"` → `true`
+- `"([)]"` → `false` （顺序错误）
+- `"{[]}"` → `true`
+- `"("` → `false` （未闭合）
+
+---
+
+### 解题思路：用栈模拟“匹配过程”
+
+这道题的本质是**检查括号的嵌套结构是否合法**。而栈的 LIFO 特性，天然适合处理这种“后进先出”的匹配关系：
+
+- 遇到**左括号** → **压入栈**（等待被匹配）；
+- 遇到**右括号** → **弹出栈顶**，检查是否匹配；
+  - 若栈空 → 无左括号可匹配 → ❌ 无效；
+  - 若不匹配（如 `(` 配 `]`）→ ❌ 无效；
+- 遍历结束后，若栈**非空** → 有左括号未被匹配 → ❌ 无效；
+- 仅当**全程匹配且栈空** → ✅ 有效。
+
+这个过程，就像我们在玩一个“搭积木+拆积木”的游戏：每放一块左括号积木，就记下它的类型；遇到右括号时，必须立刻拆掉**最新放的那块**，且类型要一致。
+
+---
+
+### 代码实现与逐行原理解析
+
+我们直接复用前面的 `Stack` 栈模块，将其作为工具类嵌入算法逻辑中：
+
+```c
+bool isValid(char* s) 
+{
+    Stack s1; 
+    StackInit(&s1); 
+
+    while (*s) 
+    {
+        // 左括号入栈
+        if (*s == '(' || *s == '{' || *s == '[') 
+        {
+            StackPush(&s1, *s);  // 将左括号字符压入栈顶。
+        }
+        // 右括号：尝试匹配
+        else 
+        {
+            // 若栈为空，说明没有左括号可匹配当前右括号。
+            if (StackEmpty(&s1))
+                return false;
+
+            char top = StackTop(&s1);  // 窥探栈顶元素，但不移除它。
+            StackPop(&s1);             //弹出栈顶，完成一次“匹配动作”。
+
+            if (top == '(' && *s != ')' ||
+                top == '[' && *s != ']' ||
+                top == '{' && *s != '}') 
+                return false;
+        }
+        s++;  
+    }
+    return StackEmpty(&s1);
+}
+```
+ 算法需要最终检查,所有右括号都匹配成功了，但可能还有左括号没被消耗，例如输入 "((("，全程只有压栈，无出栈，最后栈非空 → 无效。
+#### 解析
+
+1. **栈的类型适配**  
+   我们将 `STDateType` 从 `int` 改为 `char`，使得栈能直接存储字符。这体现了`typedef` 的灵活性，只需修改一行，整个模块即可适配新场景
+2. **“先查后弹” vs “先弹后查”**  
+   代码采用 **`Top()` → `Pop()`** 的顺序，这是安全的。  
+   若改为 `Pop()` 后再想查，就无法知道弹出的是什么了！  
+   这种“先观察、再行动”的模式，是处理依赖型操作的标准范式。
+
+3. **边界条件全覆盖**  
+  - `StackEmpty(&s1)` 在 `else` 分支开头检查：防止单独右括号（如 `")"`）导致 `StackTop` 断言失败；
+  - 最终 `return StackEmpty(&s1)`：防止未闭合左括号（如 `"("`）；
+
+4. **时间与空间复杂度**  
+   - **时间复杂度：O(n)** —— 字符串每个字符访问一次，栈操作均为 O(1)；
+   - **空间复杂度：O(n)** —— 最坏情况（全为左括号），栈中存储 n/2 个字符。
+
+---
+
+### 为什么不用其他方法？
+
+不可以使用计数器
+
+✅ 对于**单一类型括号**（如只判断 `()`），计数器足够。  
+❌ 但对于**多种括号混合**，计数器会失效！  
+例如：`"([)]"`  
+- `(`: count=1  
+- `[`: countBrace=1  
+- `)`: count=0  
+- `]`: countBrace=0  
+→ 计数器全为0，但实际是非法的！  
+**原因**：计数器丢失了“顺序”和“嵌套层次”信息，而栈恰恰保留了这些关键上下文。
+
+> 当问题涉及“最近匹配”、“嵌套结构”、“撤销操作”时，栈是不可替代的首选数据结构
+
+# 栈的实际运用
+- 撤销与重做（Undo/Redo）
+
+在 Word、Photoshop 或任何文本编辑器中，“撤销”功能是栈的完美体现。
+通常会使用两个栈：“撤销栈”和“重做栈”。做的每一步操作（比如输入文字、改变颜色）都会被压入“撤销栈”。当按下<kbd> Ctrl+Z </kbd> 时，系统从“撤销栈”弹出一个操作进行反向处理，并把这个操作压入“重做栈”，以便反悔时恢复。
