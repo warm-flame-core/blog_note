@@ -1,0 +1,281 @@
+﻿@[toc](队列)
+# 引言
+上一篇文章介绍了`栈`本文介绍一下另外一种数据结构——`队列`，依旧是C语言实现
+读者可能认为其他语言（C++、java）已经对数据结构有更好的支持，但是其文本是在介绍底层原理的实现，用C语言来实现再好不过了
+# 基本的结构
+只允许在一端进行插入数据操作，在另一端进行删除数据操作的特殊线性表是**队列**
+队列具有先进先出**FIFO(First In First Out)** 入队列：进行插入操作的一端称为队尾 出队列：进行删除操作的一端称为队头![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/38ffa39270864a9a80844fbfe269a375.png#pic_center)
+其结构就像做过山车排队一样，在队伍尾加入，在队伍前出去，每个节点我们可以用单链表。对尾插入，对头删除，我们还要一个头指针和尾指针，我们可以这样设计
+
+```c
+typedef int QDateType;
+
+typedef struct QueueNode	//结构体定义节点
+{
+	QDateType val;
+	struct QueueNode* next;
+}QNode, * pQNode;
+
+typedef struct Queue	//结构体定义头尾指针和节点个数
+{
+	pQNode ptail;
+	pQNode phead;
+	int size;
+}Queue, * pQueue;
+```
+ - phead: 指向队头节点，用于出队操作
+ - ptail: 指向队尾节点，用于入队操作
+ - size: 记录队列当前元素个数，使得获取大小的操作时间复杂度为 O(1)
+
+分别两个结构体管理节点和头尾指针，这样操作我们只需要对struct Queue操作就好了
+# 功能实现
+## 初始化 `QueueInit`
+```c
+void QueueInit(pQueue pq)
+{
+	assert(pq);
+	pq->phead = pq->ptail = NULL; // 初始状态下，头尾指针均为空
+	pq->size = 0; // 元素个数为0
+}
+```
+初始化的本质是将队列置于一个确定的“空”状态。这里将 `phead` 和 `ptail` 都置为 `NULL`
+
+## 销毁 `QueueDestroy`
+```c
+void QueueDestroy(pQueue pq)
+{
+	assert(pq);
+	pQNode pcur = pq->phead;
+	while (pcur)
+	{
+		pQNode next = pcur->next; // 先保存下一个节点的地址
+		free(pcur);               // 释放当前节点
+		pcur = next;              // 移动到下一个节点
+	}
+	pq->phead = pq->ptail = NULL; // 重置指针
+	pq->size = 0;                 // 重置计数
+}
+```
+链表销毁必须逐个节点进行。这里使用了 `pcur` 遍历，**关键点在于必须在 `free` 之前保存 `next` 指针**，否则释放之后找不到下一个节点
+
+## 入队 `QueuePush`
+```c
+void QueuePush(pQueue pq, QDateType x)
+{
+	pQNode newnode = (pQNode)malloc(sizeof(QNode));
+	if (newnode == NULL)
+	{
+		perror("malloc newnode error");
+		return;
+	}
+	newnode->val = x;
+	newnode->next = NULL; // 新节点的指针域必须置空，作为新的队尾
+
+	if (pq->phead == NULL)
+	{
+		pq->phead = pq->ptail = newnode;
+	}
+	else
+	{
+		pq->ptail->next = newnode; // 原队尾指向新节点
+		pq->ptail = newnode;       // 更新队尾指针
+	}
+	pq->size++; // 元素个数加1
+}
+```
+入队列需要分情况讨论：
+如果队列为空（phead == NULL），新节点既是头也是尾
+如果队列不为空，将原队尾的 next 指向新节点，然后更新 ptail 指向新节点
+入队操作遵循 FIFO 原则，永远发生在队尾。处理**空队列**情况，避免了对空指针的解引用。
+
+## 出队 `QueuePop`
+```c
+void QueuePop(pQueue pq)
+{
+	assert(pq);
+	assert(pq->phead); // 确保队列非空
+
+	if (pq->phead->next == NULL)
+	{
+		free(pq->phead);
+		pq->phead = pq->ptail = NULL; // 尾指针置空
+	}
+	else
+	{
+		pQNode del = pq->phead;      // 保存待删除节点
+		pq->phead = pq->phead->next; // 头指针后移
+		free(del);                   // 释放内存
+		del = NULL;
+	}
+	pq->size--; // 元素个数减1
+}
+```
+出队列也需要分情况讨论：
+ 1. 如果队列只有一个节点（phead->next == NULL）
+    删除后队列变为空，需要同时置空 phead 和 ptail
+2. 如果队列有多个节点，保存头节点，移动 phead 指针，释放旧头节点
+
+出队操作需要关注在于**单节点情况的处理**。如果只有一个节点，`phead` 和 `ptail` 指向同一个节点。删除后，必须将 `ptail` 也置为 `NULL`，否则 `ptail` 将变成空指针
+
+## 获取队头/队尾 `QueueFront` & `QueueBack`
+```c
+QDateType QueueFront(pQueue pq)
+{
+	assert(pq);
+	assert(pq->phead); // 队头不能为空
+	return pq->phead->val;
+}
+
+QDateType QueueBack(pQueue pq)
+{
+	assert(pq);
+	assert(pq->ptail); // 队尾不能为空
+	return pq->ptail->val;
+}
+```
+这两个函数都是 O(1) 操作。通过维护 `ptail` 指针，我们避免了获取队尾元素时需要遍历整个链表的低效操作（如果是单链表且只有头指针，获取尾部需要 O(N)）
+
+## **辅助函数**
+```c
+int QueueSize(pQueue pq)
+{
+	assert(pq);
+	return pq->size; // 直接返回计数器，O(1)
+}
+
+bool QueueEmpty(pQueue pq)
+{
+	assert(pq);
+	return pq->size == 0; 
+}
+```
+# 经典算法应用：用队列实现栈 (LeetCode #225)
+
+> **“数据结构之间是可以互相转化的。”**
+> —— 栈是 LIFO（后进先出），队列是 FIFO（先进先出）。如果给你两个杯子（队列），如何倒腾出一杯鸡尾酒（栈）的效果？
+
+## 题目背景
+
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/cb2b977f74b34c5aaad969d57fac7a3e.png#pic_center)
+
+## 解题思路”
+
+**栈**的核心特性是：**最后进来的元素，最先出去**
+**队列**的核心特性是：**先进来的元素，最先出去**。
+
+这就产生了一个矛盾：队列的队头是“最老”的数据，而栈的栈顶是“最新”的数据。
+为了用队列模拟栈，我们需要在**出数据（Pop）**的时候，把队列里“最老”的数据都移走，直到露出“最新”的那个数据
+
+我们维护两个队列 `q1` 和 `q2`：
+1.  **平时**：数据都往**非空**的那个队列里存
+2.  **Pop时**：
+    -   假设 `q1` 非空，`q2` 为空
+    -   我们将 `q1` 中的前 `N-1` 个元素依次出队，并压入 `q2`
+    -   此时 `q1` 中只剩下最后进来的那个元素（即栈顶元素）
+    -   直接弹出 `q1` 的队头，即为栈的 `Pop` 操作
+    -   此时 `q1` 空了，`q2` 满了，角色互换
+
+## 代码实现与深度解析
+
+直接复制之前我们写的方法
+### 1. 创建与初始化
+
+```c
+MyStack* myStackCreate() {
+    MyStack* pst = (MyStack*)malloc(sizeof(MyStack));
+    QueueInit(&pst->q1);
+    QueueInit(&pst->q2);
+    return pst;
+}
+```
+
+**解析**：
+-   申请栈的内存空间
+-   调用两次 `QueueInit`，确保两个内部队列都处于初始状态（头尾指针置空）
+
+---
+
+### 2. 入栈 (Push) 
+ 哪里有空往哪钻
+```c
+void myStackPush(MyStack* obj, int x) {
+    if (!QueneEmpty(&obj->q1))
+    {
+        QueuePush(&obj->q1, x);
+    }
+    else
+    {
+        QueuePush(&obj->q2, x);
+    }
+}
+```
+我们始终将数据推入**非空**的那个队列。 如果 `q1` 有数据，就往 `q1` 插；否则往 `q2` 插，都为空就随便
+
+---
+
+### 3. 出栈 (Pop) 
+```c
+int myStackPop(MyStack* obj) {
+    pQueue empty = &obj->q1;
+    pQueue nonempty = &obj->q2;
+
+    // 假设错了（q1其实不空），交换指针
+    if (!QueneEmpty(empty))
+    {
+        empty = &obj->q2;
+        nonempty = &obj->q1;
+    }
+    while (nonempty->size > 1)
+    {
+        QueuePush(empty, QueueFront(nonempty)); // 取队头放入空队列
+        QueuePop(nonempty);                     // 原队列出队
+    }
+    int top = QueueFront(nonempty);
+    QueuePop(nonempty);
+    return top;
+}
+```
+我们可以使用假设法找出空的队列来，这样可以少些两个if判断
+将 nonempty 队列的前 size-1 个数据搬运到 empty 队列
+此时 nonempty 中只剩下一个元素，这就是我们要弹出的“栈顶”
+ **时间复杂度**：$O(N)$。因为最坏情况下需要移动 $N-1$ 个元素。
+
+---
+
+### 4. 获取栈顶 (Top)
+```c
+int myStackTop(MyStack* obj) {
+    if (!QueneEmpty(&obj->q1))
+    {
+        return QueneBack(&obj->q1);
+    }
+    else
+    {
+        return QueneBack(&obj->q2);
+    }
+}
+```
+栈顶元素，其实就是**最后入队**的那个元素。
+在队列中，最后入队的元素永远在**队尾 (Tail)**。
+因为我们之前的 `Queue` 实现中维护了 `ptail` 指针，所以这里可以直接 $O(1)$ 获取队尾元素，而不需要像 `Pop` 那样倒腾数据。
+
+
+---
+
+### 5. 判空与销毁
+
+```c
+bool myStackEmpty(MyStack* obj) {
+    return QueneEmpty(&obj->q1) && QueneEmpty(&obj->q2);
+}
+
+void myStackFree(MyStack* obj) {
+    QueueDestroy(&obj->q1);
+    QueueDestroy(&obj->q2);
+    free(obj);
+}
+```
+
+**判空**：只有当两个队列都为空时，栈才为空。
+**销毁**：先分别销毁内部的两个队列（释放链表节点），最后释放栈结构体本身。防止内存泄漏。
+

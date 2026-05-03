@@ -1,0 +1,641 @@
+﻿
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/78623ff9c20f4ee58344321c4a2ac0f7.jpeg#pic_center)
+
+<p align="center">
+  <font color="#FF69B4"><b>Ciallo(∠・ω< )⌒☆</b></font>
+</p>
+
+<p align="center">
+  <font color="#00FFFF"><b>C语言专栏</b></font><br>
+  <a href="https://blog.csdn.net/hahaha6565/category_13108044.html">C语言博客_CSDN</a>
+</p>
+<br>
+<p align="center">
+  <font color="#00FFFF"><b>数据结构专栏</b></font><br>
+  <a href="https://blog.csdn.net/hahaha6565/category_13156520.html">数据结构博客_CSDN</a>
+</p>
+<br>
+<p align="center">
+  <font color="#00FFFF"><b>作者仓库</b></font><br>
+  <a href="https://gitee.com/warm-flame-core">代码仓库_gitee</a>
+</p>
+
+@[toc](堆和二叉树)
+# 引言
+上一篇文章介绍了栈本文介绍数据结构——堆和二叉树，依旧是C语言实现
+读者可能认为其他语言（C++、java）已经对数据结构有更好的支持，但是其文本是在介绍底层原理的实现，用C语言来实现再好不过了
+<p align="center">
+  <font color="red"><b>本篇是数据结构的初阶，不对二叉树的建立进行详细讨论，例如二叉树的构建等，笔者也还没有学到那 ，仅作为初学入门，会对堆的结构进行详细讲解</b></font>
+</p>
+
+# 一、树
+## 1.1 树的形式和相关概念
+现实生活的树大部分是是三角形状，数据结构里也是如此
+## 1.2 形式
+树是一种非线性的数据结构，它是由n（n>=0）个有限结点组成一个具有层次关系的集合。把它叫做树是因
+为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/c3c3d5b546394741af68e3be9351a94e.png#pic_center)
+
+树有以下基本概念：
+- 结点的度：一个结点含有的子树的个数称为该结点的度；
+- 叶结点或终端结点：度为0的结点称为叶结点；
+- 非终端结点或分支结点：度不为0的结点；
+- 双亲结点或父结点：若一个结点含有子结点，则这个结点称为其子结点的父结点； 
+- **孩子结点或子结点：一个结点含有的子树的根结点称为该结点的子结点；**
+- 兄弟结点：具有相同父结点的结点互称为兄弟结点；
+- **树的度：一棵树中，最大的结点的度称为树的度；**
+- **结点的层次：从根开始定义起，根为第1层，根的子结点为第2层，以此类推；**
+- 树的高度或深度：树中结点的最大层次； 如上图：树的高度为4
+- 堂兄弟结点：双亲在同一层的结点互为堂兄弟；
+- 结点的祖先：从根到该结点所经分支上的所有结点；
+- **子孙：以某结点为根的子树中任一结点都称为该结点的子孙。**
+- 森林：由m（m>0）棵互不相交的树的集合称为森林；
+
+其中加粗的是我认为比较重要的概念，需要牢记
+需要注意的是子树不相交，即**除了根节点其他每个节点都有且只有一个父节点**
+## 1.3 表示方法
+树的结构比线性表更难表示，一个节点要有父亲的信息还要孩子的信息，表示方法我们很多种，列举一个常见的表示方法——**左孩子右兄弟法**
+
+```c
+typedef int DataType;
+struct Node
+{
+	struct Node* firstChild1;    
+	struct Node* pNextBrother;   
+	DataType data;               
+};
+```
+在一个节点里保存一个兄弟和一个孩子的节点
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/5f1a2cf186434e9a98225a8ae657dab3.png#pic_center)
+
+# 二、二叉树
+像一个树一样的结构，且逻辑结构和物理结构分离。
+不存在度大于2的结点的树我们称为二叉树，其中二叉树又分为满二叉树和完全二叉树
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/c364c02b52ed494cadde905d9c3aa975.png#pic_center)
+1. 满二叉树：一个二叉树，如果每一个层的结点数都达到最大值，则这个二叉树就是满二叉树。也就是说，如果一个二叉树的层数为K，且结点总数是$2^{K} - 1$，则它就是满二叉树。
+2. 完全二叉树：完全二叉树是效率很高的数据结构，完全二叉树是由满二叉树而引出来的。对于深度为K的，有n个结点的二叉树，当且仅当其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对应时称之为完全二叉树。 要注意的是满二叉树是一种特殊的完全二叉树。
+
+## 2.1 二叉树的链式结构实现
+基于C语言实现二叉树的链式存储结构，并完成常见的遍历与统计操作，使用二叉链
+### 2.21 结构定义与创建
+定义了一个简单的二叉树节点结构，包含一个整型数据域和两个分别指向左孩子和右孩子的指针
+
+```c
+typedef int BTDateType;
+typedef struct BinaryTree
+{
+    BTDateType Date;
+    struct BinaryTree* left;
+    struct BinaryTree* right;
+}BTNode;
+```
+### 2.1.2 递归遍历
+
+二叉树的遍历是二叉树操作的基础。由于二叉树的定义本身就是递归的，因此使用递归方法实现遍历最为直观
+#### 前序遍历 (Pre-order)
+**根 -> 左 -> 右**
+先访问根节点，再遍历左子树，最后遍历右子树
+
+#### 中序遍历 (In-order)
+**左 -> 根 -> 右**
+先遍历左子树，再访问根节点，最后遍历右子树
+
+#### 后序遍历 (Post-order)
+**左 -> 右 -> 根**
+先遍历左子树，再遍历右子树，最后访问根节点
+
+```c
+// 前序遍历
+void PrevOrder(BTNode* root)
+{
+    if (root == NULL)
+    {
+        printf("N "); // 用 N 代表空节点
+        return;
+    }
+    printf("%d ", root->Date); // 访问根
+    PrevOrder(root->left);      // 遍历左
+    PrevOrder(root->right);     // 遍历右
+}
+
+// 中序遍历
+void InOrder(BTNode* root)
+{
+    if (root == NULL)
+    {
+        printf("N ");
+        return;
+    }
+    InOrder(root->left);        // 遍历左
+    printf("%d ", root->Date);  // 访问根
+    InOrder(root->right);       // 遍历右
+}
+
+// 后序遍历
+void PostOrder(BTNode* root)
+{
+    if (root == NULL)
+    {
+        printf("N ");
+        return;
+    }
+    PostOrder(root->left);      // 遍历左
+    PostOrder(root->right);     // 遍历右
+    printf("%d ", root->Date); // 访问根
+}
+```
+递归的核心在于**分治**。我们将一棵大树看作：`根节点` + `左子树` + `右子树`。只要我们能处理好根节点，剩下的工作交给递归函数去处理左右子树即可
+
+### 2.1.3 层序遍历 (Level-order)：广度优先遍历
+
+前中后序都是深度优先搜索（DFS），而层序遍历则是广度优先搜索（BFS）。它需要借助我们之前实现的**队列**来完成
+[用队列与双队列模拟复习C语言：链表、指针操作、结构体组合、FIFO原理、均摊时间复杂度分析](https://blog.csdn.net/hahaha6565/article/details/160687975?spm=1001.2014.3001.5501)
+
+1.  将根节点入队。
+2.  循环执行以下操作直到队列为空：
+    -   队头节点出队并打印
+    -   将该节点的左孩子入队（如果存在）
+    -   将该节点的右孩子入队（如果存在）
+
+```c
+void LevelOnder(BTNode* root)
+{
+    if (root == NULL)
+        return;
+    
+    Queue q;
+    QueueInit(&q);
+    QueuePush(&q, root); // 根入队
+
+    while (!QueueEmpty(&q))
+    {
+        BTNode* node = QueueFront(&q); // 取队头
+        QueuePop(&q);
+        printf("%d ", node->Date);
+        
+        // 左右孩子依次入队
+        if(node->left)
+            QueuePush(&q, node->left);
+        if (node->right)
+            QueuePush(&q, node->right);
+    }
+    QueueDestroy(&q);
+}
+```
+
+### 2.1.4 节点统计与查找
+
+#### 统计节点总数
+正常我们的思路都是带一个函数参数进来，然后一次遍历，但是无论使用哪种遍历其结果都不好：递归遍历的话因为函数栈帧会使参数没有变化，带指针的参数多次使用都需要重置其指向的变量，所以利用`return返回和递归`是最好的方法
+利用递归思想：`总节点数 = 左子树节点数 + 右子树节点数 + 1(根节点)`
+```c
+int BinaryTreeSize(BTNode* root)
+{
+    return root == NULL ? 0 : BinaryTreeSize(root->left) + BinaryTreeSize(root->right) + 1;
+}
+```
+
+#### 统计叶子节点数
+叶子节点的特征是左右孩子都为空，如果都为空那就直接`+1`
+
+```c
+int BinaryTreeLeafSize(BTNode* root)
+{
+    if (root == NULL)
+        return 0;
+    if (root->left == NULL && root->right == NULL)
+        return 1; // 找到叶子
+    return BinaryTreeLeafSize(root->left) + BinaryTreeLeafSize(root->right);
+}
+```
+
+#### 求二叉树高度
+由于前面介绍了分治的思想，很多人在求二叉树高度的时候直接分治两边，哪边结果更大那边就是高度的结构，这种思路没有错，但是有的人回这样写
+
+```c
+int BinaryTreeHeight(BTNode* root)
+{
+	if (root == NULL)
+        return 0;
+	return BinaryTreeHeight(root->left, pcount) > BinaryTreeHeight(root->right, pcount) ? BinaryTreeHeight(root->left, pcount) + 1 : BinaryTreeHeight(root->right, pcount) + 1;
+}
+```
+这里的问题在于没必要用三目表达式比较完之后进行计数时再次调用递归函数，这样相当于叫别人做事，别人做完后就忘记了，你问结果别人又重新做一次告诉你结果，所以我们应该记录每次递归的结果，这样不会重复调用
+```c
+int BinaryTreeHeight(BTNode* root)
+{
+    if (root == NULL)
+        return 0;
+    int leftheight = BinaryTreeHeight(root->left);
+    int rightheight = BinaryTreeHeight(root->right);
+    return (leftheight > rightheight ? leftheight : rightheight) + 1;
+}
+```
+
+#### 查找指定值
+```c
+BTNode* BinaryTreeFind(BTNode* root, int k)
+{
+    if (root == NULL)
+        return NULL;
+    if (root->Date == k)
+        return root; // 找到了
+    
+    // 在左子树找
+    BTNode* ret = BinaryTreeFind(root->left, k);
+    if (ret)
+        return ret; // 左边找到了就直接返回
+    
+    // 左边没找到去右边找
+    return BinaryTreeFind(root->right, k);
+}
+```
+
+### 2.1.5 二叉树的销毁
+**注意：** 销毁必须使用**后序遍历**的顺序。因为如果先释放了根节点，我们就找不到左右孩子了，会造成内存泄漏
+
+```c
+void BinaryTreeDestroy(BTNode* root)
+{
+    if (root == NULL)
+        return;
+    BinaryTreeDestroy(root->left);
+    BinaryTreeDestroy(root->right);
+    free(root); // 最后释放自己
+}
+```
+
+### 2.1.6 判断完全二叉树
+
+完全二叉树的判断逻辑比较巧妙，我们依然可以利用**层序遍历**的思想：
+
+
+在层序遍历过程中，如果遇到了一个空节点（NULL），那么后面（在同一层的后续）绝对不能再出现非空节点。
+
+1.  创建一个队列，将根节点入队。
+2.  循环出队：
+    -   如果出队的是**非空节点**，将其左右孩子（无论是否为空）都入队
+    -   如果出队的是**空节点**，跳出循环
+3.  检查队列中剩余的元素，如果还有非空节点，说明不是完全二叉树
+
+```c
+bool BinaryTreeComplete(BTNode* root)
+{
+    Queue q;
+    QueueInit(&q);
+    QueuePush(&q, root);
+
+    // 遇到非空节点
+    while (!QueueEmpty(&q))
+    {
+        BTNode* node = QueueFront(&q);
+        QueuePop(&q);
+        if (node == NULL)
+            break; // 遇到空，跳出
+        
+        // 非空节点，把左右都扔进去（哪怕是空）
+        QueuePush(&q, node->left);
+        QueuePush(&q, node->right);
+    }
+
+    // 检查剩余节点
+    while (!QueueEmpty(&q))
+    {
+        BTNode* node = QueueFront(&q);
+        QueuePop(&q);
+        if (node != NULL) // 剩下的必须全是空
+        {
+            QueueDestroy(&q);
+            return false;
+        }
+    }
+    QueueDestroy(&q);
+    return true;
+}
+```
+不必担心是有非空节点没有入队列，因为我们判断的条件是出队列遇到第一个是空节点时，后续节点都是空则时完全二叉树。但是出队列是一个非空节点，后续无论什么节点都不能完全判断出来
+
+# 三、堆
+
+## 3.1 堆的定义与性质
+堆（Heap）是一种特殊的二叉树结构。在二叉树的基础上，我们将堆分为两种主要类型：
+1.  **大根堆（大顶堆）**：每个父节点的值都**大于或等于**其子节点的值，堆顶（根）是最大值。
+2.  **小根堆（小顶堆）**：每个父节点的值都**小于或等于**其子节点的值，堆顶（根）是最小值。
+
+**堆的物理结构：**
+虽然堆的逻辑结构是二叉树，但为了节省空间并利用完全二叉树的特性，我们通常使用**数组**来存储堆。
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/d523b50c6532474f8ebabc370e6003e1.png#pic_center)
+
+
+**父子节点下标关系：**
+假设父节点的下标为 $parent$，左孩子节点的下标为 $child$，在数组从下标 0 开始存储的情况下：
+-   **已知孩子找父亲**：$parent = (child - 1) / 2$
+-   **已知父亲找左孩子**：$child = parent * 2 + 1$
+-   **已知父亲找右孩子**：$child = parent * 2 + 2$
+
+## 3.2 堆的结构定义
+
+
+```c
+// 堆的实现，使用小堆
+typedef int HPDateType;
+
+typedef struct HeapNode
+{
+    HPDateType* a;      // 数组的指针
+    int size;           // 当前有效数据个数
+    int capacity;       // 当前容量
+}Hp, *pHp;
+```
+
+## 3.3 核心调整算法
+
+堆的插入和删除操作都依赖于两个核心的调整函数：**向上调整（AdjustUp）**和**向下调整（AdjustDown）**。
+
+### 3.3.1 向上调整法 (AdjustUp)
+**场景**：通常用于**插入数据**（`HeapPush`）。
+
+1.  将新数据插入到数组的末尾（即完全二叉树的最底层最右边）。
+2.  比较该节点与其父节点的大小。
+3.  如果不符合堆的性质（例如小堆中孩子小于父节点），则交换两者位置。
+4.  继续向上比较，直到根节点或满足堆性质为止。
+
+```c
+void AdjustUp(HPDateType* a, int child)
+{
+    int parent = (child - 1) / 2;
+    // 循环直到 child 为 0 (根节点) 或 满足堆性质
+    while (child > 0)
+    {
+        if (a[child] < a[parent]) // 小堆：孩子小于父亲
+        {
+            Swap(&a[parent], &a[child]);
+            child = parent;       // 更新孩子下标为父亲的位置
+            parent = (child - 1) / 2; // 重新计算新的父亲
+        }
+        else
+            break; // 一旦满足堆性质，立即停止
+    }
+}
+```
+
+### 3.3.2 向下调整法 (AdjustDown)
+**场景**：通常用于**删除堆顶数据**（`HeapPop`）以及**建堆**（`HeapSort`）。
+
+1.  删除堆顶时，我们将最后一个元素覆盖到堆顶，此时破坏了堆的性质。
+2.  从根节点开始，比较父节点与两个孩子节点的大小。
+3.  找出较小的孩子（小堆）。
+4.  如果父节点大于该孩子，则交换，继续向下调整；否则结束。
+
+```c
+void AdjustDown(HPDateType* a, int size, int parent)
+{
+    int child = parent * 2 + 1; // 默认先标记左孩子
+    while (child < size)
+    {
+        // 1. 找出左右孩子中较小的那个（小堆）
+        // child + 1 < size 确保右孩子存在
+        // a[child] > a[child + 1] 判断右孩子是否更小
+        if (child + 1 < size && a[child] > a[child + 1])
+        {
+            child++; // 如果右孩子更小，下标指向右孩子
+        }
+        
+        // 2. 判断父节点与较小孩子的大小
+        if (a[parent] > a[child])
+        {
+            Swap(&a[child], &a[parent]);
+            parent = child;       // 向下移动
+            child = parent * 2 + 1; // 更新左孩子
+        }
+        else
+        {
+            break;
+        }
+    }
+}
+```
+这两个函数的时间复杂度均为 $O(\log N)$，因为无论时向下调整还是向下调整，都只需要执行`层数`次，而含有N个元素的堆有$log_2N$层，所以时$O(\log N)$。但是***注意***：
+<center>
+对于后续的建堆操作、交换堆顶和堆底数据和删除堆顶都不是只执行一次函数，所以三个操作的时间复杂度不一定是O(log N)   
+<center>
+
+## 3.4 堆的操作实现
+
+### 3.4.1 初始化与销毁
+堆的初始化需要对传入的结构体指针进行断言，防止空指针访问。
+
+```c
+void HeapInit(pHp Heap)
+{
+    assert(Heap);
+    Heap->a = NULL;
+    Heap->capacity = Heap->size = 0;
+}
+
+void HeapDestroy(pHp Heap)
+{
+    assert(Heap);
+    free(Heap->a); // 释放动态数组
+    Heap->a = NULL;
+    Heap->capacity = Heap->size = 0;
+}
+```
+**其中size的值表示堆底数据的下一个的下标**
+### 3.4.2 插入数据 (HeapPush)
+插入数据需要考虑内存扩容的问题。
+
+```c
+void HeapPush(pHp Heap, HPDateType x)
+{
+    assert(Heap);
+    // 1. 检查容量，进行扩容
+    if (Heap->size == Heap->capacity)
+    {
+        int newcapacity = Heap->capacity == 0 ? 4 : Heap->capacity * 2;
+        HPDateType* tmp = (HPDateType*)realloc(Heap->a, sizeof(HPDateType) * newcapacity);
+        if (tmp == NULL)
+        {
+            perror("StackPush realloc error");
+            return;
+        }
+        Heap->a = tmp;
+        Heap->capacity = newcapacity;
+    }
+    
+    // 2. 尾插数据
+    Heap->a[Heap->size] = x;
+    Heap->size++;
+    
+    // 3. 向上调整，恢复堆结构
+    AdjustUp(Heap->a, Heap->size - 1);
+}
+```
+
+### 3.4.3 删除数据 (HeapPop)
+删除操作只能删除堆顶元素（最大或最小值），交换堆顶与最后一个元素，交换后堆顶是乱序的，需要向下调整
+```c
+void HeapPop(pHp Heap)
+{
+    assert(Heap);
+    assert(Heap->a);
+    Swap(&Heap->a[0], &Heap->a[Heap->size - 1]);
+    Heap->size--;
+    AdjustDown(Heap->a, Heap->size, 0);
+}
+```
+### 3.4.4 获取堆顶与判空
+```c
+HPDateType HeapTop(pHp Heap)
+{
+    assert(Heap);
+    assert(Heap->a);
+    return Heap->a[0]; // 堆顶即数组首元素
+}
+
+bool HeapEmpty(pHp Heap)
+{
+    return Heap->size == 0;
+}
+```
+
+## 3.5 堆排序 (HeapSort)
+
+-   **升序排列**：建**大堆**
+-   **降序排列**：建**小堆**。
+
+**堆排序步骤：**
+1.  **建堆**：
+    -   方法一：从下往上，利用 `AdjustUp`，时间复杂度 $O(N \log N)$。
+    -   方法二：从最后一个非叶子节点（`num/2-1`）开始，从上往下利用 `AdjustDown`。这种方法的时间复杂度仅为 $O(N)$，效率更高。
+2.  **排序**：
+    -   将堆顶（最大/最小值）与堆的最后一个元素交换。
+    -   堆的有效长度减一（排除已排序的最大值）。
+    -   对新的堆顶进行 `AdjustDown`。
+    -   重复上述过程。
+
+```c
+void HeapSort(HPDateType* a, int num)
+{
+    // 1. 建堆：从最后一个非叶子节点开始向下调整
+    // (num - 1 - 1) / 2 即 (num-2)/2，最后一个节点的父节点
+    for (int i = (num - 1 - 1) / 2; i >= 0; i--)
+    {
+        AdjustDown(a, num, i);
+    }
+
+    // 2. 排序：利用堆顶与末尾交换
+    int end = num - 1;
+    while (end > 0)
+    {
+        Swap(&a[0], &a[end]); // 最大值（堆顶）放到最后
+        // 堆的有效长度变为 end，不再包含已排好序的部分
+        AdjustDown(a, end, 0); 
+        end--;
+    }
+}
+```
+# 四、堆的经典应用：Top-K 问题
+
+在海量数据处理中，我们经常遇到这样的问题：**从一亿个数字中找出最大的前 100 个**，或者**从十亿条搜索记录中找出最热门的 10 条**。
+
+或许面试官问你，**如果数据在硬盘里，而内存只有1G大小你会怎么做**
+
+如果直接把所有数据读入内存进行排序，时间复杂度是 $O(N \log N)$，且当数据量极大时（例如 100GB），内存可能根本装不下。这时候，**堆**就派上了大用场。
+
+## 4.1 思路
+
+要解决 Top-K 问题，我们需要维护一个大小为 K 的容器。
+-   **求最大的 K 个数**：建立一个大小为 K 的**小根堆**
+    -   小根堆的堆顶是这 K 个数中最小的。如果有新来的数比堆顶还大，说明新来的数有资格进前 K 名，而堆顶那个“最小的”就要被淘汰
+    -   最大建小堆
+-   **求最小的 K 个数**：建立一个大小为 K 的**大根堆**
+    -   大根堆的堆顶是这 K 个数中最大的。如果有新来的数比堆顶还小，说明新来的数更有资格进前 K 名，替换掉堆顶
+    -   最小建大堆
+
+**时间复杂度**：$O(N \log K)$。因为堆的大小始终维持在 K，每次调整只需要 $\log K$，遍历 N 个数据，效率极高且节省内存（只需 $O(K)$ 的空间）。
+
+## 4.2 代码
+
+
+
+```c
+void HeapTest03()
+{
+    int k = 0;
+    printf("请输入K：");
+    scanf("%d", &k);
+    printf("\n");
+    
+    // 开辟大小为 K 的数组作为堆的存储
+    int* a = (int*)malloc(k * sizeof(int));
+    if (a == NULL)
+    {
+        perror("malloc error");
+        return;
+    }
+    
+    const char* file = "date.txt";
+    FILE* fout = fopen(file, "r"); // 以只读方式打开文件
+    if (fout == NULL)
+    {
+        perror("file open error");
+        return;
+    }
+    
+    int x;
+    
+    // 取前 K 个数据建立初始堆
+    for (int i = 0; i < k; i++)
+    {
+        fscanf(fout, "%d", &x);
+        a[i] = x;
+    }
+    for (int i = (k - 2) / 2; i >= 0; i--)
+		{
+    		AdjustDown(a, k, i);
+		}
+    // 此时数组 a 中有 k 个元素，将其调整为一个小根堆   
+    while (fscanf(fout, "%d", &x) > 0)
+    {
+        // 拿新数据 x 和堆顶 a[0] 比较
+        // 如果是求最大的 K 个数，且 x 比堆顶（当前 K 个里最小的）还大
+        if (x > a[0]) 
+        {
+            a[0] = x;       // 替换堆顶
+            AdjustDown(a, k, 0); // 向下调整，恢复小堆性质
+        }
+    }
+    // 对这 K 个数进行堆排序
+    int end = k - 1;
+    while (end > 0)
+    {
+        Swap(&a[0], &a[end]); // 把堆顶（最小值）换到最后
+        AdjustDown(a, end, 0); // 重新调整剩下的 end 个元素
+        end--;
+    }
+    for (int i = 0; i < k; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    
+    fclose(fout);
+    free(a); 
+}
+```
+
+## 4.3 关键点剖析
+
+不直接用 `HeapPush`，在代码的前半部分，我们直接通过 `fscanf` 填充数组。这是因为如果我们已经知道总共有 K 个元素要建立堆，直接使用**向下调整法（AdjustDown）**从最后一个非叶子节点开始建堆，时间复杂度是 $O(K)$，比连续调用 K 次 `HeapPush`（即向上调整，总复杂度 $O(K \log K)$）要快。
+```c
+    if (x > a[0]) 
+    {
+        a[0] = x;       
+        AdjustDown(a, k, 0); 
+    }
+```
+    -   a[0] 是当前选出的 K 个数中的守门员（最小值）。
+    -   任何新来的数 x，只要比守门员强，就能进门。
+    -   进门后，原来的守门员被踢出（被覆盖），新的秩序（堆结构）必须通过 AdjustDown 重建，选出新的守门员。
+经过上面的筛选，数组 `a` 中确实存着最大的 K 个数，但它们并不一定是有序的（堆只是保证堆顶最小，不保证整体有序）。代码最后一段 `while (end > 0)` 其实就是对这 K 个数做了一次标准的**堆排序**，将它们从小到大排列输出。
+
+
