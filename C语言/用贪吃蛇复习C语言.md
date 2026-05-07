@@ -1,4 +1,4 @@
-﻿@[toc](贪吃蛇)
+
 # 引言
 作者最近终于是学完C语言基础语言和一点点链表的知识，必须大展身手一下，参照了一些贪吃蛇的开源，自己写了一个简单的贪吃蛇，不仅可以拿来练手，还可以复习之前学过的知识，特此写一篇文章来分享
 程序界面如图所示：
@@ -116,7 +116,7 @@ GetAsyncKeyState函数可以用来获取按键是否按下和是否按过
 
 即：
 
-> #define KEY_PRESS(VK)  ( (GetAsyncKeyState(VK) & 0x1) ? 1 : 0 )
+> "#define KEY_PRESS(VK)  ( (GetAsyncKeyState(VK) & 0x1) ? 1 : 0 )"
 如果将这个宏放入循环中，则在循环检测这个是否被按过，即检测这个键
 
 虚拟键值详细见[微软虚拟键值描述](https://learn.microsoft.com/zh-cn/windows/win32/inputdev/virtual-key-codes)

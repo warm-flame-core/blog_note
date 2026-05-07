@@ -11,24 +11,10 @@
             "id": "175db5693a8e818a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "数据结构/栈.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "栈"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -186,8 +172,21 @@
               "icon": "lucide-file-signature",
               "title": "脚注"
             }
+          },
+          {
+            "id": "f77edfff8103143e",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "C++/C++入门基础.md"
+              },
+              "icon": "lucide-info",
+              "title": "C++入门基础的笔记属性"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -206,17 +205,33 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "ad2d1ccf8ef2f056",
+  "active": "175db5693a8e818a",
   "lastOpenFiles": [
-    "数据结构/队列与双栈模拟.md",
-    "数据结构/二叉树与堆.md",
-    "C语言/数据在内存中的存取.md",
-    "C语言/浅谈C语言.md",
-    "C语言/初识C语言.md",
-    "C语言/递归思想.md",
-    "C语言/扫雷游戏.md",
+    "Markdown入门教程.md",
+    "template/模板1.md",
+    "C语言/printf中的格式输出.md",
     "C语言/指针.md",
+    "C语言/用贪吃蛇复习C语言.md",
     "C语言/移位操作符、位操作符.md",
+    "C语言/数据在内存中的存取.md",
+    "C语言/扫雷游戏.md",
+    "C语言/浅谈C语言.md",
+    "C语言/递归思想.md",
+    "C语言/初识C语言.md",
+    "C++/C++入门基础.md",
+    "数据结构/栈.md",
+    "数据结构/二叉树与堆.md",
+    "数据结构/队列与双栈模拟.md",
+    "目录/数据结构目录.md",
+    "未命名.canvas",
+    "目录名称.md",
+    "递归.md",
+    "目录/C语言目录.md",
+    "目录/C++目录.md",
+    "目录",
+    "template",
+    "C++/未命名.base",
+    "C++",
     "数据结构",
     "C语言",
     "指针.md"
