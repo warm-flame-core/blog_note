@@ -4,17 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "2ea30039ee2c6ae0",
+        "id": "c231106f665b953f",
         "type": "tabs",
         "children": [
           {
-            "id": "175db5693a8e818a",
+            "id": "b3e34a367389b804",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "C++/类和对象.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "类和对象"
             }
           }
         ]
@@ -205,8 +219,10 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "175db5693a8e818a",
+  "active": "b3e34a367389b804",
   "lastOpenFiles": [
+    "Pasted image 20260517165936.png",
+    "C++/类和对象.md",
     "Markdown入门教程.md",
     "template/模板1.md",
     "C语言/printf中的格式输出.md",
