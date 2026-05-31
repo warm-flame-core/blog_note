@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/C++内存管理.md",
+                "file": "C++/C++内存管理和模板初阶.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "C++内存管理"
+              "title": "C++内存管理和模板初阶"
             }
           }
         ]
@@ -221,9 +221,11 @@
   },
   "active": "b3e34a367389b804",
   "lastOpenFiles": [
-    "C++/attachments/Pasted image 20260526212901.png",
+    "C++/attachments/Pasted image 20260530205943.png",
     "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
-    "C++/C++内存管理.md",
+    "C++/~$对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
+    "C++/C++内存管理和模板初阶.md",
+    "C++/attachments/Pasted image 20260526212901.png",
     "Markdown入门教程.md",
     "C++/C++入门基础.md",
     "C++/attachments/Pasted image 20260518204624.png",
