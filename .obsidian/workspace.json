@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/C++内存管理和模板初阶.md",
+                "file": "C++/C++string库介绍以及常见功能模拟实现.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "C++内存管理和模板初阶"
+              "title": "C++string库介绍以及常见功能模拟实现"
             }
           }
         ]
@@ -104,7 +104,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C语言/浅谈C语言中的指针：指针变量大小、const修饰、指针加减、野指针、数组传参本质、函数指针、转移表（函数指针数组）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +113,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "浅谈C语言中的指针：指针变量大小、const修饰、指针加减、野指针、数组传参本质、函数指针、转移表（函数指针数组） 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -199,8 +198,7 @@
               "title": "C++入门基础的笔记属性"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -221,19 +219,25 @@
   },
   "active": "b3e34a367389b804",
   "lastOpenFiles": [
-    "C++/attachments/Pasted image 20260530205943.png",
+    "C++/attachments/PDF1_P6_IMG1 1.png",
+    "C++/attachments/PDF1_P6_IMG1.png",
+    "C++/attachments/PDF1_P6_IMG1.png.crdownload",
     "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
-    "C++/~$对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
-    "C++/C++内存管理和模板初阶.md",
-    "C++/attachments/Pasted image 20260526212901.png",
-    "Markdown入门教程.md",
+    "C++/C++string库介绍以及常见功能模拟实现.md",
     "C++/C++入门基础.md",
-    "C++/attachments/Pasted image 20260518204624.png",
+    "C++/C++内存管理和模板初阶.md",
     "C++/attachments/Pasted image 20260518203129.png",
-    "C++/attachments",
+    "C++/attachments/Pasted image 20260518204624.png",
+    "C++/attachments/Pasted image 20260526212901.png",
+    "C++/attachments/Pasted image 20260530205943.png",
+    "C++/attachments/QQ_1780404096341.png",
     "目录/C++目录.md",
-    "Pasted image 20260517165936.png",
+    "目录/C语言目录.md",
     "template/模板1.md",
+    "C++/~$对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
+    "Markdown入门教程.md",
+    "C++/attachments",
+    "Pasted image 20260517165936.png",
     "C语言/printf中的格式输出.md",
     "C语言/指针.md",
     "C语言/用贪吃蛇复习C语言.md",
@@ -250,7 +254,6 @@
     "未命名.canvas",
     "目录名称.md",
     "递归.md",
-    "目录/C语言目录.md",
     "目录",
     "template",
     "C++/未命名.base",
