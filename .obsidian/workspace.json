@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/C++string库介绍以及常见功能模拟实现.md",
+                "file": "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "C++string库介绍以及常见功能模拟实现"
+              "title": "迭代器失效探究之vector详解——vector对于野指针的检查"
             }
           }
         ]
@@ -219,21 +219,24 @@
   },
   "active": "b3e34a367389b804",
   "lastOpenFiles": [
+    "template/模板1.md",
+    "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
+    "C++/string库.md",
+    "目录/C++目录.md",
+    "目录/数据结构目录.md",
+    "C++/C++入门基础.md",
+    "C++/C++内存管理和模板初阶.md",
+    "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "C++/attachments/PDF1_P6_IMG1 1.png",
     "C++/attachments/PDF1_P6_IMG1.png",
     "C++/attachments/PDF1_P6_IMG1.png.crdownload",
-    "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "C++/C++string库介绍以及常见功能模拟实现.md",
-    "C++/C++入门基础.md",
-    "C++/C++内存管理和模板初阶.md",
     "C++/attachments/Pasted image 20260518203129.png",
     "C++/attachments/Pasted image 20260518204624.png",
     "C++/attachments/Pasted image 20260526212901.png",
     "C++/attachments/Pasted image 20260530205943.png",
     "C++/attachments/QQ_1780404096341.png",
-    "目录/C++目录.md",
     "目录/C语言目录.md",
-    "template/模板1.md",
     "C++/~$对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "Markdown入门教程.md",
     "C++/attachments",
@@ -250,7 +253,6 @@
     "数据结构/栈.md",
     "数据结构/二叉树与堆.md",
     "数据结构/队列与双栈模拟.md",
-    "目录/数据结构目录.md",
     "未命名.canvas",
     "目录名称.md",
     "递归.md",
@@ -259,7 +261,6 @@
     "C++/未命名.base",
     "C++",
     "数据结构",
-    "C语言",
-    "指针.md"
+    "C语言"
   ]
 }
