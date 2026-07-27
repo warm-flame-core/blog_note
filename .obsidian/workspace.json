@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
+                "file": "python/从C语言快速转向py——第一课.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "迭代器失效探究之vector详解——vector对于野指针的检查"
+              "title": "从C语言快速转向py——第一课"
             }
           }
         ]
@@ -219,14 +219,16 @@
   },
   "active": "b3e34a367389b804",
   "lastOpenFiles": [
-    "template/模板1.md",
+    "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
+    "python/从C语言快速转向py——第一课.md",
+    "python",
     "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
+    "template/模板1.md",
     "C++/string库.md",
     "目录/C++目录.md",
     "目录/数据结构目录.md",
     "C++/C++入门基础.md",
     "C++/C++内存管理和模板初阶.md",
-    "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "C++/attachments/PDF1_P6_IMG1 1.png",
     "C++/attachments/PDF1_P6_IMG1.png",
     "C++/attachments/PDF1_P6_IMG1.png.crdownload",
@@ -255,7 +257,6 @@
     "数据结构/队列与双栈模拟.md",
     "未命名.canvas",
     "目录名称.md",
-    "递归.md",
     "目录",
     "template",
     "C++/未命名.base",
