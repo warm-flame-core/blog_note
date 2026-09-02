@@ -4,31 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c231106f665b953f",
+        "id": "8b404bbb15dd3373",
         "type": "tabs",
         "children": [
           {
-            "id": "b3e34a367389b804",
+            "id": "bdcba80be78c82e9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "python/从C语言快速转向py——第一课.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "从C语言快速转向py——第一课"
+              "title": "新标签页"
             }
           }
         ]
@@ -51,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -217,10 +205,15 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "b3e34a367389b804",
+  "active": "ad2d1ccf8ef2f056",
   "lastOpenFiles": [
-    "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
+    "数据结构/二叉树与堆.md",
+    "数据结构/队列与双栈模拟.md",
+    "Markdown入门教程.md",
+    "未命名.base",
     "python/从C语言快速转向py——第一课.md",
+    "目录/Python目录.md",
+    "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "python",
     "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
     "template/模板1.md",
@@ -240,7 +233,6 @@
     "C++/attachments/QQ_1780404096341.png",
     "目录/C语言目录.md",
     "C++/~$对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
-    "Markdown入门教程.md",
     "C++/attachments",
     "Pasted image 20260517165936.png",
     "C语言/printf中的格式输出.md",
@@ -253,10 +245,7 @@
     "C语言/递归思想.md",
     "C语言/初识C语言.md",
     "数据结构/栈.md",
-    "数据结构/二叉树与堆.md",
-    "数据结构/队列与双栈模拟.md",
     "未命名.canvas",
-    "目录名称.md",
     "目录",
     "template",
     "C++/未命名.base",
