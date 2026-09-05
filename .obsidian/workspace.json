@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8b404bbb15dd3373",
+        "id": "cfc76f1a8f53f980",
         "type": "tabs",
         "children": [
           {
-            "id": "bdcba80be78c82e9",
+            "id": "b174170eac1508bb",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -110,12 +110,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C语言/浅谈C语言中的指针：指针变量大小、const修饰、指针加减、野指针、数组传参本质、函数指针、转移表（函数指针数组）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "浅谈C语言中的指针：指针变量大小、const修饰、指针加减、野指针、数组传参本质、函数指针、转移表（函数指针数组） 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -186,7 +185,8 @@
               "title": "C++入门基础的笔记属性"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -205,23 +205,32 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "ad2d1ccf8ef2f056",
+  "active": "b174170eac1508bb",
   "lastOpenFiles": [
-    "数据结构/二叉树与堆.md",
+    "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md",
     "数据结构/队列与双栈模拟.md",
+    "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md.tmp.22860.445c674927da",
+    "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md.tmp.22860.5b64c62eb9d4",
+    "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md.tmp.22860.219b19eeaab9",
     "Markdown入门教程.md",
-    "未命名.base",
-    "python/从C语言快速转向py——第一课.md",
-    "目录/Python目录.md",
-    "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
-    "python",
-    "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
+    "C++/带头结点的双向循环链表详解——list 的模拟实现.md",
+    "目录/数据结构目录.md",
+    "目录/C++目录.md",
+    "C++/带头结点的双向循环链表详解——list 的模拟实现.md~RFbcaad.TMP",
+    "C++/带头结点的双向循环链表详解——list 的模拟实现.md~RF27356a.TMP",
     "template/模板1.md",
     "C++/string库.md",
-    "目录/C++目录.md",
-    "目录/数据结构目录.md",
-    "C++/C++入门基础.md",
+    "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
+    "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "C++/C++内存管理和模板初阶.md",
+    "C++/C++入门基础.md",
+    "C++/带头结点的双向循环链表详解——list 的模拟实现.md~RF4a2f55.TMP",
+    "目录/Python目录.md",
+    "目录/C语言目录.md",
+    "数据结构/二叉树与堆.md",
+    "未命名.base",
+    "python/从C语言快速转向py——第一课.md",
+    "python",
     "C++/attachments/PDF1_P6_IMG1 1.png",
     "C++/attachments/PDF1_P6_IMG1.png",
     "C++/attachments/PDF1_P6_IMG1.png.crdownload",
@@ -231,7 +240,6 @@
     "C++/attachments/Pasted image 20260526212901.png",
     "C++/attachments/Pasted image 20260530205943.png",
     "C++/attachments/QQ_1780404096341.png",
-    "目录/C语言目录.md",
     "C++/~$对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "C++/attachments",
     "Pasted image 20260517165936.png",
@@ -242,15 +250,6 @@
     "C语言/数据在内存中的存取.md",
     "C语言/扫雷游戏.md",
     "C语言/浅谈C语言.md",
-    "C语言/递归思想.md",
-    "C语言/初识C语言.md",
-    "数据结构/栈.md",
-    "未命名.canvas",
-    "目录",
-    "template",
-    "C++/未命名.base",
-    "C++",
-    "数据结构",
-    "C语言"
+    "未命名.canvas"
   ]
 }
