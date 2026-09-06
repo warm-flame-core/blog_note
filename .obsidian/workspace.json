@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "cfc76f1a8f53f980",
+        "id": "e9737bbba45536ee",
         "type": "tabs",
         "children": [
           {
-            "id": "b174170eac1508bb",
+            "id": "e4fa376a4dd2cdf7",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -205,35 +205,37 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "b174170eac1508bb",
+  "active": "e4fa376a4dd2cdf7",
   "lastOpenFiles": [
+    "C++/C++模板进阶——特化全解.md",
+    "目录/C++目录.md.tmp.17052.85da4ec73dd7",
+    "template/模板1.md.tmp.17052.75ad47e3c56f",
+    "C++/C++模板进阶——特化全解.md.tmp.17052.4205c3e969b7",
+    "C++/C++模板进阶——特化全解.md.tmp.17052.0fdbc0652daa",
+    "C++/C++模板进阶——特化全解.md.tmp.17052.1e88fd9923aa",
+    "C++/C++模板进阶——特化全解.md.tmp.17052.b3a69e200c34",
+    "template/模板1.md",
+    "C++/带头结点的双向循环链表详解——list 的模拟实现.md",
     "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md",
     "数据结构/队列与双栈模拟.md",
     "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md.tmp.22860.445c674927da",
     "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md.tmp.22860.5b64c62eb9d4",
     "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md.tmp.22860.219b19eeaab9",
     "Markdown入门教程.md",
-    "C++/带头结点的双向循环链表详解——list 的模拟实现.md",
     "目录/数据结构目录.md",
     "目录/C++目录.md",
     "C++/带头结点的双向循环链表详解——list 的模拟实现.md~RFbcaad.TMP",
-    "C++/带头结点的双向循环链表详解——list 的模拟实现.md~RF27356a.TMP",
-    "template/模板1.md",
     "C++/string库.md",
     "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
     "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "C++/C++内存管理和模板初阶.md",
     "C++/C++入门基础.md",
-    "C++/带头结点的双向循环链表详解——list 的模拟实现.md~RF4a2f55.TMP",
     "目录/Python目录.md",
     "目录/C语言目录.md",
     "数据结构/二叉树与堆.md",
-    "未命名.base",
     "python/从C语言快速转向py——第一课.md",
-    "python",
     "C++/attachments/PDF1_P6_IMG1 1.png",
     "C++/attachments/PDF1_P6_IMG1.png",
-    "C++/attachments/PDF1_P6_IMG1.png.crdownload",
     "C++/C++string库介绍以及常见功能模拟实现.md",
     "C++/attachments/Pasted image 20260518203129.png",
     "C++/attachments/Pasted image 20260518204624.png",
@@ -241,7 +243,6 @@
     "C++/attachments/Pasted image 20260530205943.png",
     "C++/attachments/QQ_1780404096341.png",
     "C++/~$对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
-    "C++/attachments",
     "Pasted image 20260517165936.png",
     "C语言/printf中的格式输出.md",
     "C语言/指针.md",
@@ -249,7 +250,6 @@
     "C语言/移位操作符、位操作符.md",
     "C语言/数据在内存中的存取.md",
     "C语言/扫雷游戏.md",
-    "C语言/浅谈C语言.md",
     "未命名.canvas"
   ]
 }
