@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b328c6840b86cc92",
+        "id": "177d9efe3fb68830",
         "type": "tabs",
         "children": [
           {
-            "id": "0a1cc9326cb910bd",
+            "id": "80d632501162fc44",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -205,8 +205,12 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "0a1cc9326cb910bd",
+  "active": "80d632501162fc44",
   "lastOpenFiles": [
+    "obsidian的MD语法.md.tmp.12020.b9386cd6e657",
+    "obsidian的MD语法.md.tmp.12020.006a42688de2",
+    "obsidian的MD语法.md.tmp.12020.29e2223ec9f2",
+    "obsidian的MD语法.md",
     "obsidian的MD语法.md.tmp.12020.47dc30e51991",
     "obsidian的MD语法.md.tmp.12020.80757f2fb23e",
     "template/模板1.md.tmp.12020.21086acc4dca",
@@ -215,11 +219,7 @@
     "目录/C语言目录.md.tmp.12020.5ab38126f562",
     "目录/C++目录.md.tmp.12020.f7dc2a7d19a4",
     "python/从C语言快速转向py——第一课.md.tmp.12020.d171c086062a",
-    "数据结构/二叉树与堆.md.tmp.12020.9544b0a45c91",
-    "数据结构/栈.md.tmp.12020.8316e72c7953",
-    "C语言/递归思想.md.tmp.12020.491cc7b7b363",
     "STM32/STM32入门概念篇——从嵌入式、MCU到命名规则与开发环境.md",
-    "obsidian的MD语法.md",
     "语法测试-临时.md",
     "目录/STM32目录.md",
     "C++/继承全解——继承、默认成员函数、切片、隐藏与虚继承.md",
