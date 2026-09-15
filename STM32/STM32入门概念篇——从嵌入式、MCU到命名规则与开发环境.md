@@ -6,31 +6,46 @@ aliases:
 日期: 2026年9月13日
 ---
 
-<div align="center"> <img src="https://i-blog.csdnimg.cn/direct/78623ff9c20f4ee58344321c4a2ac0f7.jpeg" width="400" alt="头像"/> </div>
+![[template/博客横幅.jpg|600]]
 
 <p align="center">
   <font color="#FF69B4"><b>Ciallo(∠・ω< )⌒☆</b></font>
 </p>
 
+<br>
+
+<table align="center" width="100%">
+  <tr>
+    <th align="center">系列专栏</th>
+    <th align="center">直达链接</th>
+  </tr>
+  <tr>
+    <td align="center">🔤 C 语言</td>
+    <td align="center"><a href="https://blog.csdn.net/hahaha6565/category_13108044.html">进入专栏 →</a></td>
+  </tr>
+  <tr>
+    <td align="center">🧱 数据结构</td>
+    <td align="center"><a href="https://blog.csdn.net/hahaha6565/category_13156520.html">进入专栏 →</a></td>
+  </tr>
+  <tr>
+    <td align="center">🔧 C++</td>
+    <td align="center"><a href="https://blog.csdn.net/hahaha6565/category_13163238.html">进入专栏 →</a></td>
+  </tr>
+  <tr>
+    <td align="center">🐍 Python</td>
+    <td align="center"><a href="https://blog.csdn.net/hahaha6565/category_13194466.html">进入专栏 →</a></td>
+  </tr>
+  <tr>
+    <td align="center">🔌 STM32</td>
+    <td align="center"><a href="https://blog.csdn.net/hahaha6565/category_13209892.html">进入专栏 →</a></td>
+  </tr>
+</table>
+
+<br>
+
 <p align="center">
-  <font color="#00FFFF"><b>C语言专栏</b></font><br>
-  <a href="https://blog.csdn.net/hahaha6565/category_13108044.html">C语言博客_CSDN</a>
-</p>
-<p align="center">
-  <font color="#00FFFF"><b>数据结构专栏</b></font><br>
-  <a href="https://blog.csdn.net/hahaha6565/category_13156520.html">数据结构博客_CSDN</a>
-</p>
-<p align="center">
-  <font color="#00FFFF"><b>C++专栏</b></font><br>
-  <a href="https://blog.csdn.net/hahaha6565/category_13163238.html?spm=1001.2014.3001.5482">C++博客_CSDN</a>
-</p>
-<p align="center">
-  <font color="#00FFFF"><b>STM32专栏</b></font><br>
-  <a href="https://blog.csdn.net/hahaha6565/category_13209892.html">STM32博客_CSDN</a>
-</p>
-<p align="center">
-  <font color="#00FFFF"><b>作者仓库</b></font><br>
-  <a href="https://gitee.com/warm-flame-core">代码仓库_gitee</a>
+  🏠 博客主页：<a href="https://blog.csdn.net/hahaha6565?type=blog">暖焰核心</a><br>
+  📦 作者仓库：<a href="https://github.com/warm-flame-core">github</a> | <a href="https://gitee.com/warm-flame-core">gitee</a>
 </p>
 
 # 引言
@@ -166,13 +181,13 @@ STM32 家族内部也有系列划分，比较常见的有这几类：
 
 真正动手开发需要一套工具链，我打算采用的组合是：
 
-- 硬件：STM32 开发板 + ST-Link 下载器（ST-Link 是意法官方的下载调试器，负责把编译好的程序写进芯片）；
+- 硬件：STM32 开发板 + DAP 下载器（DAP 是开源免费的调试器，负责把编译好的程序写进芯片，也能用来在线调试）；
 - 软件：Keil MDK（Keil 公司的集成开发环境，MDK 是 Microcontroller Development Kit 的缩写，负责编译和下载代码）负责编译和下载，STM32CubeMX 做图形化配置，HAL 库提供官方驱动；
 - 语言：C 语言。
 
 这里的 HAL 是 Hardware Abstraction Layer（硬件抽象层）的缩写。芯片内部有一堆寄存器，直接操作它们要对着几百页手册逐位配置，很容易出错。HAL 库把这些底层操作包装成函数，调用一次 `HAL_GPIO_WritePin()` 就能控制引脚，不用管背后寄存器怎么变。代价是效率略有损失，但对入门来说，先把功能跑通比抠性能重要。
 
-开发流程大致是用 CubeMX 配置好引脚和外设，让它生成初始化代码，再在生成的工程里写自己的业务逻辑，最后用 Keil 编译、通过 ST-Link 烧录到芯片。这些细节等环境搭起来再细说。
+开发流程大致是用 CubeMX 配置好引脚和外设，让它生成初始化代码，再在生成的工程里写自己的业务逻辑，最后用 Keil 编译、通过 DAP 烧录到芯片。这些细节等环境搭起来再细说。
 
 ---
 
