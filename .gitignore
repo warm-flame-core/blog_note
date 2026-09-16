@@ -51,3 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 .reasonix/
+
+# Obsidian 插件运行态（含 API key 与证书私钥，不得入库）
+.obsidian/plugins/*/data.json
