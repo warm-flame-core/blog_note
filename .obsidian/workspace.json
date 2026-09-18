@@ -4,17 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "a6b6b664c0047658",
+        "id": "2f811220c7cfb774",
         "type": "tabs",
         "children": [
           {
-            "id": "72923a63d6641df6",
+            "id": "ac085e81fb639307",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "STM32/GPIO 概念篇——从端口位电路到八种工作模式.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "GPIO 概念篇——从端口位电路到八种工作模式"
             }
           }
         ]
@@ -205,22 +219,26 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "72923a63d6641df6",
+  "active": "ac085e81fb639307",
   "lastOpenFiles": [
+    "STM32/GPIO 概念篇——从端口位电路到八种工作模式.md",
+    "STM32/attachments/输入抖动反复横跳.png",
+    "STM32/attachments/浮空输入像接收天线.jpg",
+    "STM32/attachments/施密特触发器迟滞区域.png",
+    "STM32/attachments/PMOS与NMOS符号.png",
+    "STM32/attachments/GPIO输出部分结构框图.png",
+    "STM32/attachments/GPIO输入部分结构框图.png",
+    "STM32/attachments/GPIO端口位基本电路结构.png",
+    "C++/_zz-fence-B.md",
+    "C++/_zz-fence-A.md",
+    "C++/_zz-预演-多态.md",
     "STM32/STM32入门概念篇——从嵌入式、MCU到命名规则与开发环境.md",
+    "template/模板1.md",
     "STM32/STM32F103ZET6 封装、引脚与开发环境.md",
     "1.md",
-    "template/模板1.md",
     "template/二次元风格图片生成（风瑾）.png",
     "template/博客横幅.jpg",
     "template/1762953240207(3).png",
-    "STM32/attachments/Keil烧录完成.png",
-    "STM32/attachments/Keil烧录配置.png",
-    "STM32/attachments/Keil编译输出.png",
-    "STM32/attachments/DAP仿真器引脚定义.jpg",
-    "STM32/attachments/STM32开发板SWD接口.jpg",
-    "STM32/attachments/LQFP144封装尺寸.png",
-    "STM32/attachments/STM32F103ZET6特殊功能引脚.png",
     "obsidian的MD语法.md.tmp.29864.613428600a96",
     "obsidian的MD语法.md.tmp.29864.0dc7cda4b042",
     "obsidian的MD语法.md.tmp.29864.4b334bca415f",
@@ -231,7 +249,6 @@
     "坏图-测试.png.tmp.29864.30696a0ad075",
     "obsidian的MD语法.md.tmp.29864.2c5c3d76a129",
     "obsidian的MD语法.md.tmp.29864.e46c8d801a84",
-    "obsidian的MD语法.md.tmp.29864.b131005cca3f",
     "obsidian的MD语法.md",
     "语法测试-临时.md",
     "目录/STM32目录.md",
@@ -249,10 +266,6 @@
     "C++/迭代器失效探究之vector详解——vector对于野指针的检查.md",
     "C++/类和对象全解：你想知道的这里都有，默认成员函数、友元、隐式类型转换、const和static修饰.md",
     "C++/C++内存管理和模板初阶.md",
-    "C++/C++入门基础.md",
-    "数据结构/二叉树与堆.md",
-    "python/从C语言快速转向py——第一课.md",
-    "C++/C++string库介绍以及常见功能模拟实现.md",
     "未命名.canvas"
   ]
 }
