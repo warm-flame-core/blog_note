@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "31b649304d49f938",
+        "id": "e7a0ca9144430f79",
         "type": "tabs",
         "children": [
           {
-            "id": "01d4d0779c287195",
+            "id": "496b3351ae887a3f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -205,8 +205,11 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "01d4d0779c287195",
+  "active": "496b3351ae887a3f",
   "lastOpenFiles": [
+    "目录/Python目录.md",
+    "目录/STM32目录.md",
+    "STM32/STM32 时钟树实操与 SystemClock_Config 源码解析.md",
     "STM32/RCC 概念篇——单片机的心跳从哪来.md",
     "STM32/attachments/STM32低速时钟树RTC与IWDG.png",
     "STM32/attachments/STM32VBAT备份域纽扣电池.jpg",
@@ -241,17 +244,14 @@
     "obsidian的MD语法.md.tmp.29864.e46c8d801a84",
     "obsidian的MD语法.md",
     "语法测试-临时.md",
-    "目录/STM32目录.md",
     "C++/继承全解——继承、默认成员函数、切片、隐藏与虚继承.md",
     "目录/C语言目录.md",
-    "目录/Python目录.md",
     "C++/C++模板进阶——特化全解.md",
     "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md",
     "数据结构/队列与双栈模拟.md",
     "Markdown入门教程.md",
     "目录/数据结构目录.md",
     "目录/C++目录.md",
-    "C++/string库.md",
     "未命名.canvas"
   ]
 }

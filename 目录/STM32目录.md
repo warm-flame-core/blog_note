@@ -6,6 +6,7 @@
 实操篇：
 5. [[STM32/GPIO 输出与 HAL 源码解析]]
 6. [[STM32/GPIO 输入与按键检测]]
+7. [[STM32/STM32 时钟树实操与 SystemClock_Config 源码解析]]
 
 ---
 
