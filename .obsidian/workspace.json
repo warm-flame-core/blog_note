@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e7a0ca9144430f79",
+        "id": "cf73d30d6b2a1f98",
         "type": "tabs",
         "children": [
           {
-            "id": "496b3351ae887a3f",
+            "id": "7e00c5bce3bd11fe",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -205,8 +205,14 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "496b3351ae887a3f",
+  "active": "7e00c5bce3bd11fe",
   "lastOpenFiles": [
+    "C语言/初识C语言.md",
+    "C++/继承全解——继承、默认成员函数、切片、隐藏与虚继承.md",
+    "STM32/USART 概念篇——从高低电平到数据帧.md",
+    "STM32/attachments/STM32USART发送TXE与TC标志时序.png",
+    "STM32/attachments/STM32USART功能框图.png",
+    "STM32/attachments/STM32USART帧格式.png",
     "目录/Python目录.md",
     "目录/STM32目录.md",
     "STM32/STM32 时钟树实操与 SystemClock_Config 源码解析.md",
@@ -218,11 +224,8 @@
     "STM32/attachments/STM32倍频与分频驱动对比.png",
     "STM32/attachments/STM32时钟树四个时钟源标注.png",
     "STM32/attachments/STM32时钟树树形简化图.png",
-    "STM32/attachments/RCC_APB1ENR寄存器位图.png",
-    "STM32/attachments/STM32时钟树全图.png",
     "STM32/GPIO 输入与按键检测.md",
     "STM32/GPIO 输出与 HAL 源码解析.md",
-    "STM32/attachments/STM32_GPIOx_IDR寄存器.png",
     "template/模板1.md",
     "STM32/GPIO 概念篇——从端口位电路到八种工作模式.md",
     "C++/带头结点的双向循环链表详解——list 的模拟实现.md",
@@ -244,14 +247,11 @@
     "obsidian的MD语法.md.tmp.29864.e46c8d801a84",
     "obsidian的MD语法.md",
     "语法测试-临时.md",
-    "C++/继承全解——继承、默认成员函数、切片、隐藏与虚继承.md",
     "目录/C语言目录.md",
     "C++/C++模板进阶——特化全解.md",
     "C++/C++容器适配器详解——stack、queue、priority_queue与堆的模拟实现.md",
     "数据结构/队列与双栈模拟.md",
     "Markdown入门教程.md",
-    "目录/数据结构目录.md",
-    "目录/C++目录.md",
     "未命名.canvas"
   ]
 }

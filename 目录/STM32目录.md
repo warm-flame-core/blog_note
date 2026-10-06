@@ -3,10 +3,11 @@
 2. [[STM32/STM32F103ZET6 封装、引脚与开发环境]]
 3. [[STM32/GPIO 概念篇——从端口位电路到八种工作模式]]
 4. [[STM32/RCC 概念篇——单片机的心跳从哪来]]
+5. [[STM32/USART 概念篇——从高低电平到数据帧]]
 实操篇：
-5. [[STM32/GPIO 输出与 HAL 源码解析]]
-6. [[STM32/GPIO 输入与按键检测]]
-7. [[STM32/STM32 时钟树实操与 SystemClock_Config 源码解析]]
+6. [[STM32/GPIO 输出与 HAL 源码解析]]
+7. [[STM32/GPIO 输入与按键检测]]
+8. [[STM32/STM32 时钟树实操与 SystemClock_Config 源码解析]]
 
 ---
 
