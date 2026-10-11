@@ -1,3 +1,10 @@
+---
+tags:
+  - 形态/概念
+aliases:
+  - printf中的格式输出
+日期: 2026年1月6日
+---
 
 ~~一个大一新生的浅谈~~
 我的[gitee仓库](https://gitee.com/warm-flame-core)记录了我的作业和简单算法，还有博客的markdown原文

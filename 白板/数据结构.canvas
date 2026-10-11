@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"g-queue","type":"group","label":"栈与队列","x":0,"y":0,"width":520,"height":400},
+		{"id":"g-tree","type":"group","label":"二叉树","x":580,"y":0,"width":520,"height":620},
+		{"id":"g-heap","type":"group","label":"堆","x":1160,"y":0,"width":520,"height":620},
+		{"id":"stack-lifo","type":"text","text":"[[数据结构/栈#栈的形式|栈 LIFO]]","x":40,"y":80,"width":200,"height":60,"wb_blog":"数据结构/栈","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"stack-array","type":"text","text":"[[数据结构/栈#栈的实现形式|数组实现栈]]","x":40,"y":180,"width":200,"height":60,"wb_blog":"数据结构/栈","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"stack-paren","type":"text","text":"[[数据结构/栈#栈的经典应用：判断有效括号|有效括号匹配]]","x":40,"y":280,"width":200,"height":60,"wb_blog":"数据结构/栈","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"queue-fifo","type":"text","text":"[[数据结构/队列与双栈模拟#基本的结构|队列 FIFO]]","x":280,"y":80,"width":200,"height":60,"wb_blog":"数据结构/队列与双栈模拟","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"queue-ring","type":"text","text":"[[数据结构/队列与双栈模拟#功能实现|环形队列判满]]","x":280,"y":180,"width":200,"height":60,"wb_blog":"数据结构/队列与双栈模拟","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"queue-stack","type":"text","text":"[[数据结构/队列与双栈模拟|队列模拟栈]]","x":280,"y":280,"width":200,"height":60,"wb_blog":"数据结构/队列与双栈模拟","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"tree-prop","type":"text","text":"[[数据结构/二叉树与堆#二、二叉树|二叉树性质]]","x":620,"y":80,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"tree-traverse","type":"text","text":"[[数据结构/二叉树与堆#2.1.2 递归遍历|三种遍历]]","x":620,"y":180,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"tree-level","type":"text","text":"[[数据结构/二叉树与堆#2.1.3 层序遍历 (Level-order)：广度优先遍历|层序遍历]]","x":620,"y":280,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"tree-complete","type":"text","text":"[[数据结构/二叉树与堆#2.1.6 判断完全二叉树|完全二叉树判定]]","x":620,"y":380,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"tree-height","type":"text","text":"[[数据结构/二叉树与堆#求二叉树高度|递归求高度]]","x":620,"y":480,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"heap-def","type":"text","text":"[[数据结构/二叉树与堆#3.1 堆的定义与性质|堆的两个性质]]","x":1200,"y":80,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"heap-adjust","type":"text","text":"[[数据结构/二叉树与堆#3.3 核心调整算法|上浮与下沉]]","x":1200,"y":180,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"heap-insert","type":"text","text":"[[数据结构/二叉树与堆#3.4 堆的操作实现|插入与删除]]","x":1200,"y":280,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"heap-sort","type":"text","text":"[[数据结构/二叉树与堆#3.5 堆排序 (HeapSort)|堆排序]]","x":1200,"y":380,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"heap-topk","type":"text","text":"[[数据结构/二叉树与堆#四、堆的经典应用：Top-K 问题|Top-K 小顶堆]]","x":1200,"y":480,"width":200,"height":60,"wb_blog":"数据结构/二叉树与堆","wb_state":"done","wb_batch":"2026-10-10"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"stack-lifo","toNode":"stack-array","label":"实现","fromSide":"bottom","toSide":"top"},
+		{"id":"e2","fromNode":"stack-lifo","toNode":"stack-paren","label":"应用","fromSide":"bottom","toSide":"top"},
+		{"id":"e3","fromNode":"queue-fifo","toNode":"queue-ring","label":"易错","fromSide":"bottom","toSide":"top"},
+		{"id":"e4","fromNode":"queue-fifo","toNode":"queue-stack","label":"追问","fromSide":"bottom","toSide":"top"},
+		{"id":"e5","fromNode":"queue-fifo","toNode":"tree-level","label":"前置","fromSide":"bottom","toSide":"top"},
+		{"id":"e6","fromNode":"tree-prop","toNode":"tree-traverse","label":"前置","fromSide":"bottom","toSide":"top"},
+		{"id":"e7","fromNode":"tree-traverse","toNode":"tree-level","label":"追问","fromSide":"bottom","toSide":"top"},
+		{"id":"e8","fromNode":"tree-level","toNode":"tree-complete","label":"前置","fromSide":"bottom","toSide":"top"},
+		{"id":"e9","fromNode":"tree-traverse","toNode":"tree-height","label":"前置","fromSide":"bottom","toSide":"top"},
+		{"id":"e10","fromNode":"tree-prop","toNode":"heap-def","label":"前置","fromSide":"right","toSide":"left"},
+		{"id":"e11","fromNode":"heap-def","toNode":"heap-adjust","label":"前置","fromSide":"bottom","toSide":"top"},
+		{"id":"e12","fromNode":"heap-adjust","toNode":"heap-insert","label":"前置","fromSide":"bottom","toSide":"top"},
+		{"id":"e13","fromNode":"heap-adjust","toNode":"heap-sort","label":"前置","fromSide":"bottom","toSide":"top"},
+		{"id":"e14","fromNode":"heap-sort","toNode":"heap-topk","label":"追问","fromSide":"bottom","toSide":"top"}
+	]
+}

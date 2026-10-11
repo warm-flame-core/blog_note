@@ -1,3 +1,10 @@
+---
+tags:
+  - 形态/概念
+aliases:
+  - 初识C语言
+日期: 2025年12月22日
+---
 <center>  从hello world开始认识C语言 <center>
 
 ~~一个大一新生的浅谈~~

@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"id":"g-py","type":"group","label":"基础差异","x":0,"y":0,"width":520,"height":380},
+		{"id":"py-diff","type":"text","text":"[[python/从C语言快速转向py——第一课#与C语言不一样的地方|与C不同]]","x":40,"y":80,"width":200,"height":60,"wb_blog":"python/从C语言快速转向py——第一课","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"py-str","type":"text","text":"[[python/从C语言快速转向py——第一课#字符串可以拼接|字符串拼接]]","x":280,"y":80,"width":200,"height":60,"wb_blog":"python/从C语言快速转向py——第一课","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"py-range","type":"text","text":"[[python/从C语言快速转向py——第一课#range函数生成迭代，左闭右开|range用法]]","x":40,"y":180,"width":200,"height":60,"wb_blog":"python/从C语言快速转向py——第一课","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"py-step","type":"text","text":"[[python/从C语言快速转向py——第一课#可以规定步长|规定步长]]","x":280,"y":180,"width":200,"height":60,"wb_blog":"python/从C语言快速转向py——第一课","wb_state":"done","wb_batch":"2026-10-10"},
+		{"id":"py-neg","type":"text","text":"[[python/从C语言快速转向py——第一课#步长可以是负数|负数步长]]","x":40,"y":280,"width":200,"height":60,"wb_blog":"python/从C语言快速转向py——第一课","wb_state":"done","wb_batch":"2026-10-10"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"py-diff","toNode":"py-str","label":"追问","fromSide":"bottom","toSide":"top"},
+		{"id":"e2","fromNode":"py-diff","toNode":"py-range","label":"追问","fromSide":"bottom","toSide":"top"},
+		{"id":"e3","fromNode":"py-range","toNode":"py-step","label":"追问","fromSide":"bottom","toSide":"top"},
+		{"id":"e4","fromNode":"py-step","toNode":"py-neg","label":"追问","fromSide":"bottom","toSide":"top"}
+	]
+}

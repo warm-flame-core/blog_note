@@ -1,3 +1,10 @@
+---
+tags:
+  - 形态/概念
+aliases:
+  - 浅谈C语言
+日期: 2025年12月25日
+---
 
 ~~一个大一新生的浅谈~~
 我的[gitee仓库](https://gitee.com/warm-flame-core)记录了我的作业和简单算法，还有博客的markdown原文

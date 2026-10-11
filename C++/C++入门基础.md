@@ -1,6 +1,6 @@
 ---
 tags:
-  - 编程
+  - 形态/概念
 aliases:
   - CPlusPlus
 日期: 2026年5月7日
