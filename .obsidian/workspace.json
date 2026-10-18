@@ -4,17 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "2877d71187062cd1",
+        "id": "727d596ce1cb68cd",
         "type": "tabs",
         "children": [
           {
-            "id": "01398342310655ca",
+            "id": "9d90c20724f5c41e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "type": "canvas",
+              "state": {
+                "file": "白板/C++.canvas",
+                "viewState": {
+                  "x": 1536.1675126903554,
+                  "y": 490.87563451776634,
+                  "zoom": -0.803164083843008
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "C++"
             }
           }
         ]
@@ -205,14 +212,30 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "01398342310655ca",
+  "active": "9d90c20724f5c41e",
   "lastOpenFiles": [
+    "C++/多态全解——虚函数、重写、虚表与多态原理.md",
+    "C++/二叉搜索树——从插入查到key-value改写.md~RF13ca2a7.TMP",
+    "C++/二叉搜索树——从插入查到key-value改写.md~RF13bf0cc.TMP",
+    "C++/二叉搜索树——从插入查到key-value改写.md~RF13ba6d2.TMP",
+    "C++/二叉搜索树——从插入查到key-value改写.md",
+    "C++/二叉搜索树——从插入查到key-value改写.md~RFd40037.TMP",
+    "目录/C++目录.md~RFce546f.TMP",
+    "C++/attachments/BST删除情况4.png",
+    "C++/attachments/BST删除情况3.png",
+    "C++/attachments/BST删除情况1和2.png",
+    "C++/attachments/BST重复值插入方向.png",
+    "C++/attachments/BST插入新值的路径.png",
+    "C++/attachments/BST插入后的树.png",
+    "C++/attachments/BST完全二叉树与单支树.png",
+    "C++/attachments/BST概念与重复值.png",
+    "白板/C++.canvas",
+    "C++/attachments/多态查表过程.png",
+    "C++/attachments/虚表内存窗口.png",
     "_画图测试.md",
-    "_drawtest/缓冲区机制示意.png",
     "_drawtest",
     "白板/数据结构.canvas",
     "C语言/初识C语言.md",
-    "白板/C++.canvas",
     "白板/C语言.canvas",
     "白板/STM32.canvas",
     "STM32/USART 概念篇——从高低电平到数据帧.md",
@@ -230,19 +253,10 @@
     "_mcp_linkprobe.md",
     "_mcp_selftest_renamed.md",
     "C++/继承全解——继承、默认成员函数、切片、隐藏与虚继承.md",
-    "STM32/attachments/STM32USART发送TXE与TC标志时序.png",
-    "STM32/attachments/STM32USART功能框图.png",
-    "STM32/attachments/STM32USART帧格式.png",
     "目录/Python目录.md",
     "目录/STM32目录.md",
     "STM32/STM32 时钟树实操与 SystemClock_Config 源码解析.md",
     "STM32/RCC 概念篇——单片机的心跳从哪来.md",
-    "STM32/attachments/STM32低速时钟树RTC与IWDG.png",
-    "STM32/attachments/STM32VBAT备份域纽扣电池.jpg",
-    "STM32/attachments/CubeMX时钟树配置界面.png",
-    "STM32/attachments/STM32总线矩阵与RCC位置.png",
-    "STM32/attachments/STM32倍频与分频驱动对比.png",
-    "STM32/attachments/STM32时钟树四个时钟源标注.png",
     "STM32/GPIO 输入与按键检测.md",
     "STM32/GPIO 输出与 HAL 源码解析.md",
     "template/模板1.md",
@@ -251,15 +265,7 @@
     "C++/_zz-fence-B.md",
     "C++/_zz-fence-A.md",
     "C++/_zz-预演-多态.md",
-    "STM32/STM32入门概念篇——从嵌入式、MCU到命名规则与开发环境.md",
-    "STM32/STM32F103ZET6 封装、引脚与开发环境.md",
-    "1.md",
     "obsidian的MD语法.md.tmp.29864.613428600a96",
-    "obsidian的MD语法.md.tmp.29864.0dc7cda4b042",
-    "obsidian的MD语法.md.tmp.29864.4b334bca415f",
-    "obsidian的MD语法.md.tmp.29864.6ed7875557f2",
-    "obsidian的MD语法.md.tmp.29864.6b089a5aa062",
-    "图片语法实测-临时.md.tmp.29864.525fe634d253",
-    "坏图-测试.png.tmp.29864.30696a0ad075"
+    "obsidian的MD语法.md.tmp.29864.0dc7cda4b042"
   ]
 }
