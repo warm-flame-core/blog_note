@@ -1,6 +1,44 @@
 {
 	"nodes":[
+		{"id":"g1","type":"group","label":"冯诺依曼与 OS","x":-900,"y":-500,"width":460,"height":320},
+		{"id":"g2","type":"group","label":"进程与 PCB","x":-400,"y":-500,"width":460,"height":390},
+		{"id":"g3","type":"group","label":"看见进程","x":100,"y":-500,"width":460,"height":320},
+		{"id":"g4","type":"group","label":"fork 与写时拷贝","x":600,"y":-500,"width":460,"height":320},
+		{"id":"g5","type":"group","label":"进程状态","x":-900,"y":-120,"width":460,"height":320},
+		{"id":"g6","type":"group","label":"僵尸与孤儿","x":-400,"y":-120,"width":460,"height":320},
+
+		{"id":"n1","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#一、 冯诺依曼体系结构|数据过内存]]","x":-880,"y":-460,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n2","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#一、 冯诺依曼体系结构|printf]]","x":-880,"y":-390,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n3","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#二、 操作系统与「管理」|描述与组织]]","x":-880,"y":-320,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n4","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#二、 操作系统与「管理」|系统调用柜台]]","x":-880,"y":-250,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+
+		{"id":"n5","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#3.1 进程是什么|进程三定义]]","x":-380,"y":-460,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n6","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#3.2 描述进程：PCB 与 task_struct|PCB 是什么]]","x":-380,"y":-390,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n7","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#3.2 描述进程：PCB 与 task_struct|结构体字段]]","x":-380,"y":-320,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n8","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#3.3 组织进程：双链表与 container_of|双链表组织]]","x":-380,"y":-250,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n9","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#3.3 组织进程：双链表与 container_of|偏移量算法]]","x":-380,"y":-180,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+
+		{"id":"n10","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#四、 看见进程|/proc 窗口]]","x":120,"y":-460,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n11","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#四、 看见进程|进程树]]","x":120,"y":-390,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n12","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#四、 看见进程|cwd/exe]]","x":120,"y":-320,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n13","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#五、 fork 与写时拷贝|两个返回值]]","x":620,"y":-460,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n14","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#五、 fork 与写时拷贝|写时拷贝]]","x":620,"y":-390,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n15","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#五、 fork 与写时拷贝|虚拟地址]]","x":620,"y":-320,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+
+		{"id":"n16","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#6.1 源码里的状态表|状态位图]]","x":-880,"y":-80,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n17","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#6.2 逐个状态|七种状态]]","x":-880,"y":-10,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n18","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#6.3 状态在队列之间流动|队列流动]]","x":-880,"y":60,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+
+		{"id":"n19","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#七、 僵尸进程|僵尸成因]]","x":-380,"y":-80,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n20","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#七、 僵尸进程|defunct]]","x":-380,"y":-10,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"},
+		{"id":"n21","type":"text","text":"[[Linux/Linux 进程——从 PCB 到僵尸进程#八、 孤儿进程|孤儿领养]]","x":-380,"y":60,"width":250,"height":60,"wb_blog":"Linux/Linux 进程——从 PCB 到僵尸进程","wb_state":"pending","wb_batch":"2026-10-23","color":"1"}
 	],
 	"edges":[
+		{"id":"e1","fromNode":"n5","toNode":"n7","label":"实现"},
+		{"id":"e2","fromNode":"n8","toNode":"n9","label":"实现"},
+		{"id":"e3","fromNode":"n13","toNode":"n14","label":"追问"},
+		{"id":"e4","fromNode":"n14","toNode":"n15","label":"追问"},
+		{"id":"e5","fromNode":"n19","toNode":"n20","label":"实现"},
+		{"id":"e6","fromNode":"n19","toNode":"n21","label":"易错"}
 	]
 }

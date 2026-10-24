@@ -4,24 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "727d596ce1cb68cd",
+        "id": "4ca17983ceb1ed75",
         "type": "tabs",
         "children": [
           {
-            "id": "9d90c20724f5c41e",
+            "id": "0694efa92c79a64d",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "白板/C++.canvas",
-                "viewState": {
-                  "x": 1536.1675126903554,
-                  "y": 490.87563451776634,
-                  "zoom": -0.803164083843008
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "C++"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -212,8 +205,27 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "9d90c20724f5c41e",
+  "active": "0694efa92c79a64d",
   "lastOpenFiles": [
+    "Linux/Linux 进程——从 PCB 到僵尸进程.md",
+    "Linux/attachments/进程状态转换.png",
+    "Linux/attachments/fork父子分流.png",
+    "Linux/attachments/进程与PCB组织.png",
+    "Linux/attachments/冯诺依曼体系结构.png",
+    "Linux/attachments",
+    "Linux",
+    "白板/数据结构.canvas",
+    "数据结构/map 和 set 的使用，与 AVL 树的实现.md",
+    "数据结构/attachments/AVL左右双旋h1.png",
+    "数据结构/attachments/AVL左单旋抽象.png",
+    "数据结构/attachments/AVL右单旋h1.png",
+    "数据结构/attachments/AVL右单旋h0.png",
+    "数据结构/attachments/AVL右单旋抽象.png",
+    "数据结构/attachments/AVL平衡因子更新.png",
+    "数据结构/attachments",
+    "tools/依赖缺失与降级排查.md",
+    "tools",
+    "白板/C++.canvas",
     "C++/多态全解——虚函数、重写、虚表与多态原理.md",
     "C++/二叉搜索树——从插入查到key-value改写.md~RF13ca2a7.TMP",
     "C++/二叉搜索树——从插入查到key-value改写.md~RF13bf0cc.TMP",
@@ -221,20 +233,8 @@
     "C++/二叉搜索树——从插入查到key-value改写.md",
     "C++/二叉搜索树——从插入查到key-value改写.md~RFd40037.TMP",
     "目录/C++目录.md~RFce546f.TMP",
-    "C++/attachments/BST删除情况4.png",
-    "C++/attachments/BST删除情况3.png",
-    "C++/attachments/BST删除情况1和2.png",
-    "C++/attachments/BST重复值插入方向.png",
-    "C++/attachments/BST插入新值的路径.png",
-    "C++/attachments/BST插入后的树.png",
-    "C++/attachments/BST完全二叉树与单支树.png",
-    "C++/attachments/BST概念与重复值.png",
-    "白板/C++.canvas",
-    "C++/attachments/多态查表过程.png",
-    "C++/attachments/虚表内存窗口.png",
     "_画图测试.md",
     "_drawtest",
-    "白板/数据结构.canvas",
     "C语言/初识C语言.md",
     "白板/C语言.canvas",
     "白板/STM32.canvas",
@@ -243,11 +243,9 @@
     "_tag_probe.md",
     "C语言/递归思想.md",
     "数据结构/二叉树与堆.md",
-    "白板",
     "_wb_fieldtest.canvas",
     "未命名.canvas",
     "_mcp_probe2.md",
-    "未命名.base",
     "_mcp_canvas_probe.canvas",
     "_sse_probe.md",
     "_mcp_linkprobe.md",
@@ -262,10 +260,6 @@
     "template/模板1.md",
     "STM32/GPIO 概念篇——从端口位电路到八种工作模式.md",
     "C++/带头结点的双向循环链表详解——list 的模拟实现.md",
-    "C++/_zz-fence-B.md",
-    "C++/_zz-fence-A.md",
-    "C++/_zz-预演-多态.md",
-    "obsidian的MD语法.md.tmp.29864.613428600a96",
-    "obsidian的MD语法.md.tmp.29864.0dc7cda4b042"
+    "C++/_zz-fence-B.md"
   ]
 }
