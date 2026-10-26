@@ -1,12 +1,83 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
-  "showTags": true,
+  "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
   "showOrphans": true,
   "collapse-color-groups": false,
-  "colorGroups": [],
+  "colorGroups": [
+    {
+      "query": "path:目录/",
+      "color": {
+        "a": 1,
+        "rgb": 15119394
+      }
+    },
+    {
+      "query": "path:\"C语言/\"",
+      "color": {
+        "a": 1,
+        "rgb": 3049131
+      }
+    },
+    {
+      "query": "path:\"C++/\"",
+      "color": {
+        "a": 1,
+        "rgb": 4020864
+      }
+    },
+    {
+      "query": "path:\"数据结构/\"",
+      "color": {
+        "a": 1,
+        "rgb": 2792847
+      }
+    },
+    {
+      "query": "path:\"STM32/\"",
+      "color": {
+        "a": 1,
+        "rgb": 12674667
+      }
+    },
+    {
+      "query": "path:\"Linux/\"",
+      "color": {
+        "a": 1,
+        "rgb": 6966419
+      }
+    },
+    {
+      "query": "path:\"python/\"",
+      "color": {
+        "a": 1,
+        "rgb": 7048739
+      }
+    },
+    {
+      "query": "path:白板/",
+      "color": {
+        "a": 1,
+        "rgb": 6122878
+      }
+    },
+    {
+      "query": "path:template/",
+      "color": {
+        "a": 1,
+        "rgb": 8359053
+      }
+    },
+    {
+      "query": "-path:目录/",
+      "color": {
+        "a": 1,
+        "rgb": 11581372
+      }
+    }
+  ],
   "collapse-display": false,
   "showArrow": true,
   "textFadeMultiplier": 0,
@@ -17,6 +88,6 @@
   "repelStrength": 8.9873417721519,
   "linkStrength": 1,
   "linkDistance": 500,
-  "scale": 0.6316046762907467,
+  "scale": 8,
   "close": true
 }
