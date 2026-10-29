@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "318ca56c60f5ea46",
+        "id": "4c9e4879c7fa4db0",
         "type": "tabs",
         "children": [
           {
-            "id": "ccc495e48343025b",
+            "id": "0a28db4dc31f4adc",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -205,8 +205,12 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "ccc495e48343025b",
+  "active": "0a28db4dc31f4adc",
   "lastOpenFiles": [
+    "Linux/Linux 进程控制——退出码与进程等待.md",
+    "Linux/attachments/status位图.png",
+    "Linux/attachments/exit与_exit两条路.png",
+    "Linux/attachments/退出码来路.png",
     "目录/总目录.md",
     "目录/C++目录.md",
     "目录/数据结构目录.md",
@@ -224,9 +228,6 @@
     "白板/数据结构.canvas",
     "数据结构/map 和 set 的使用，与 AVL 树的实现.md",
     "数据结构/attachments/AVL左右双旋h1.png",
-    "数据结构/attachments/AVL左单旋抽象.png",
-    "数据结构/attachments/AVL右单旋h1.png",
-    "数据结构/attachments/AVL右单旋h0.png",
     "数据结构/attachments",
     "tools/依赖缺失与降级排查.md",
     "tools",
@@ -260,7 +261,6 @@
     "目录/STM32目录.md",
     "STM32/STM32 时钟树实操与 SystemClock_Config 源码解析.md",
     "STM32/RCC 概念篇——单片机的心跳从哪来.md",
-    "STM32/GPIO 输入与按键检测.md",
-    "STM32/GPIO 输出与 HAL 源码解析.md"
+    "STM32/GPIO 输入与按键检测.md"
   ]
 }
