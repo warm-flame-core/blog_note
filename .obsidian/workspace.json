@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4c9e4879c7fa4db0",
+        "id": "a6935b33bcc0f40f",
         "type": "tabs",
         "children": [
           {
-            "id": "0a28db4dc31f4adc",
+            "id": "85ee4489d342597f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -195,18 +195,28 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
-      "workspaces:管理工作区布局": false
+      "workspaces:管理工作区布局": false,
+      "switcher:打开快速切换": false
     }
   },
-  "active": "0a28db4dc31f4adc",
+  "active": "ad2d1ccf8ef2f056",
   "lastOpenFiles": [
+    "Linux/Linux 自定义shell尝试（一）.md~RFc87ca5.TMP",
+    "Linux/Linux 自定义shell尝试（一）.md~RFc83d4a.TMP",
+    "Linux/Linux 自定义shell尝试（二）.md",
+    "Linux/Linux 自定义shell尝试（一）.md",
+    "Linux/attachments/内建命令与外部分流.png",
+    "Linux/attachments/fork-exec-wait时序.png",
+    "Linux/attachments/shell主循环的五步.png",
+    "Linux/Linux 进程——从 PCB 到僵尸进程.md",
+    "template/模板1.md",
+    "白板/python.canvas",
     "Linux/Linux 进程控制——退出码与进程等待.md",
     "Linux/attachments/status位图.png",
     "Linux/attachments/exit与_exit两条路.png",
@@ -218,16 +228,12 @@
     "Linux/Linux 命令行参数、环境变量与进程地址空间.md",
     "Linux/attachments/mm_struct与VMA.png",
     "Linux/attachments/虚拟地址到物理页的映射.png",
-    "Linux/Linux 进程——从 PCB 到僵尸进程.md",
     "Linux/attachments/进程状态转换.png",
     "Linux/attachments/fork父子分流.png",
-    "Linux/attachments/进程与PCB组织.png",
-    "Linux/attachments/冯诺依曼体系结构.png",
     "Linux/attachments",
     "Linux",
     "白板/数据结构.canvas",
     "数据结构/map 和 set 的使用，与 AVL 树的实现.md",
-    "数据结构/attachments/AVL左右双旋h1.png",
     "数据结构/attachments",
     "tools/依赖缺失与降级排查.md",
     "tools",
@@ -240,12 +246,10 @@
     "C++/二叉搜索树——从插入查到key-value改写.md~RFd40037.TMP",
     "目录/C++目录.md~RFce546f.TMP",
     "_画图测试.md",
-    "_drawtest",
     "C语言/初识C语言.md",
     "白板/C语言.canvas",
     "白板/STM32.canvas",
     "STM32/USART 概念篇——从高低电平到数据帧.md",
-    "白板/python.canvas",
     "_tag_probe.md",
     "C语言/递归思想.md",
     "数据结构/二叉树与堆.md",
@@ -257,10 +261,6 @@
     "_mcp_linkprobe.md",
     "_mcp_selftest_renamed.md",
     "C++/继承全解——继承、默认成员函数、切片、隐藏与虚继承.md",
-    "目录/Python目录.md",
-    "目录/STM32目录.md",
-    "STM32/STM32 时钟树实操与 SystemClock_Config 源码解析.md",
-    "STM32/RCC 概念篇——单片机的心跳从哪来.md",
-    "STM32/GPIO 输入与按键检测.md"
+    "目录/Python目录.md"
   ]
 }
